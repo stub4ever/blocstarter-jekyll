@@ -1,0 +1,81 @@
+// ========================================================
+// REDUCE
+
+// Use for negative margins
+// ========================================================
+
+$reduce-breakpoints: (
+    'small': $view-small,
+    'tablet': $view-tablet,
+    'desktop': $view-desktop
+    ) !default;
+
+
+$reduce-sizes: (
+	null: $gutter-stack,
+	'--tiny': $gutter-tiny,
+	'--small': $gutter-small,
+	'--medium': $gutter-medium,
+	'--large': $gutter-large,
+	'--xlarge': $gutter-xlarge,
+    '--xxlarge': $gutter-xxlarge,
+	'--flush': 0
+	) !default;
+
+
+.reduce {
+    margin: -$gutter-stack;
+}
+
+// Size variants
+
+.reduce--tiny {
+	margin: -$gutter-tiny;
+}
+
+.reduce--small {
+	margin: -$gutter-small;
+}
+
+.reduce--medium {
+	margin: -$gutter-medium;
+}
+
+.reduce--large {
+	margin: -$gutter-large;
+}
+
+.reduce--xlarge {
+	margin: -$gutter-xlarge;
+}
+
+.reduce--xxlarge {
+    margin: -$gutter-xxlarge;
+}
+
+
+.reduce--flush {
+	margin: 0;
+}
+
+
+/**
+* Generate a series of device size variants to be used like so:
+*
+*   <div class="reduce  reduce--large@desktop">
+*
+*/
+
+@each $reduce-bp-name, $reduce-bp-value in $reduce-breakpoints {
+
+	@each $size-namespace, $size in $reduce-sizes {
+
+	    @media only screen and (min-width: $reduce-bp-value) {
+
+	        .reduce#{$size-namespace}\@#{$reduce-bp-name} {
+	            margin: -$size;
+	        }
+
+	    }
+	}
+}

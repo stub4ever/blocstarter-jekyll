@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="cleartype" content="on">
+
+{% include path.html %}
+
+<!-- favicon -->
+<link rel="favicon icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96" href="{{ site.thumb }}/favicon.png">
+<!-- end favicon -->
+
+<!-- site icons -->
+<link href="{{ site.thumb }}/apple-touch-icon-x180.png" rel="apple-touch-icon"  sizes="180x180">
+<link href="{{ site.thumb }}/apple-touch-icon-x32.png" rel="icon"  sizes="32x32">
+<!-- end site icons -->
+
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+<!-- Company -->
+<link rel='publisher' href='https://plus.google.com/USERNAME' />
+
+<!-- Social Media -->
+<meta property='og:title' content='95 characters of message matching text with a call to action goes here' />
+<meta property='og:type' content='article' />
+<meta property='og:image' content='http://www.iacquire.com/some-thumbnail.jpg' />
+<meta property='og:url' content='http://blog.iacquire.com' />
+<meta property='og:description' content='297 characters of message matching text with a call to action goes here' />
+<!-- <meta property='fb:admins' content='USER_ID' /> -->
+
+<!-- Twitter Cards -->
+<meta name='twitter:card' content='summary'>
+<meta name='twitter:url' content='http://www.nytimes.com/2012/02/19/arts/music/amid-police-presence-fans-congregate-for-whitney-houstons-funeral-in-newark.html'>
+<meta name='twitter:title' content='Parade of Fans for Houston’s Funeral'>
+<meta name='twitter:description' content='NEWARK – The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.'>
+<meta name='twitter:image' content='http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg'>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ path }}/css/core.css">
+<link rel="stylesheet" href="{{ path }}/css/app.css">
+
+<link rel="canonical" href="{{ page.url | replace:'index.html',''  }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="feed.xml" />
+
+
+

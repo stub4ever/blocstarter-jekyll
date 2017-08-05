@@ -1,0 +1,168 @@
+<div id="mixins" class="styleguide__sub-title bb b--black-10 f3 b">Mixins</div>
+<section>
+    <div class="section__inner">
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Mixin name</th>
+                    <th>What it does</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p><strong>Font-size</strong></p>
+                        <code>include @font-size</code>
+                    </td>
+                    <td>
+                        Genarate rem font-size with px fallback and baseline-compatible line-height for vertical rhythm
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>Medias</strong></p>
+                        <code>include @respond-min-width</code> <br>
+                        <code>include @respond-max-width</code> <br>
+                        <code>include @respond-min-height</code> <br>
+                        <code>include @respond-max-height</code> <br>
+                        <code>include @respond-min-combi</code> <br>
+                        <code>include @respond-max-combi</code> <br>
+                    </td>
+                    <td>
+                        Genarate media queries widths / heights or combi breakpoints that map values to talk with javascript
+
+                        <a href="http://clubmate.fi/a-lesson-in-sass-maps-make-sass-media-queries-talk-to-javascript/" t9arget="_blank">Sass maps make sass media talk to javascript</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div id="utils" class="styleguide__sub-title bb b--black-10 f3 b">Utils - a series of utility classes</div>
+<section>
+    <div class="section__inner">
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Class name</th>
+                    <th>Modifier</th>
+                    <th>Class Examples</th>
+                    <th>How to use?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p><strong>Widths</strong></p>
+                        <code>w[numerator/denominator]@[breakpoint-name]</code>
+                    </td>
+                    <td>
+                        <p><strong>Breakpoints</strong></p>
+                        <code>@small</code> <br>
+                        <code>@tablet</code> <br>
+                        <code>@desktop</code>
+                    </td>
+                    <td>
+                        <code>w1/5</code> <br>
+                        <code>w2/3</code> <br>
+                        <code>w1/2@desktop</code> <br>
+                        <code>w2/4@small</code>
+                    </td>
+                    <td>
+                        Used to give a layout system an fluid width & flexibel responsive variants
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>Spacings</strong></p>
+                        <code>m[spacing-direction]-[spacing-size]</code> <br><br>
+                        <code>p[spacing-direction]-[spacing-size]</code>
+
+                    </td>
+                    <td>
+                        <p><strong>Spacing-direction</strong></p>
+                        <code>t (top)</code> <br>
+                        <code>r (right)</code> <br>
+                        <code>b (bottom)</code> <br>
+                        <code>l (left)</code> <br>
+                        <code>h (horizontal)</code> <br>
+                        <code>v (vertical)</code> <br>
+                        <p><strong>Spacing-size</strong></p>
+                        <code>null (1/2 gutter)</code> <br>
+                        <code>-tiny (1/4)</code> <br>
+                        <code>-small (1/3)</code> <br>
+                        <code>-medium (1)</code> <br>
+                        <code>-large (x2)</code> <br>
+                        <code>-xlarge (x2.5)</code> <br>
+                        <code>-auto (auto)</code> <br>
+                        <code>-none (0)</code> <br>
+                    </td>
+                    <td>
+                        <p><strong>Margin</strong></p>
+                        <code>m</code> <br>
+                        <code>m-auto</code> <br>
+                        <code>mt</code> <br>
+                        <code>m-none</code> <br>
+                        <code>mv-large</code> <br>
+                        <code>mr-tiny</code> <br>
+
+                        <p><strong>Padding</strong></p>
+                        <code>p</code> <br>
+                        <code>p-none</code> <br>
+                        <code>ph</code> <br>
+                        <code>pv-auto</code> <br>
+                        <code>pv-large</code> <br>
+                        <code>pr-small</code> <br>
+
+                    </td>
+                    <td>
+                        Used to give specific <i>Margin or Padding spacing</i> values onto elements
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div id="helpers" class="styleguide__sub-title bb b--black-10 f3 b">Classes Helpers</div>
+<section>
+    <div class="section__inner">
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Class name</th>
+                    <th>How to use?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>accessibility</code>
+                    </td>
+                    <td>
+                        Used for hiding content. It's important that a technique be implemented that results in the desired outcome and accessibility
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>group</code>
+                    </td>
+                    <td>
+                        Used in float layouts where elements are floated to be stacked horizontally (Clearfix)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>skip-to-main</code>
+                    </td>
+                    <td>
+                        Used to skip navigation link to content, pointing to an anchor link placed in the same page which allow the user to skip directly to the main content. Having a skip to main content link appear when it receives keyboard focus
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

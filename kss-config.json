@@ -1,0 +1,15 @@
+{
+  "//": "The source and destination paths are relative to this file.",
+  "source": [
+    "_core/sass",
+  ],
+  "destination":  "../development/",
+
+  "//": "The css and js paths are URLs relative to the generated style guide.",
+  "css": [
+    "../development/css/core.css",
+    "../development/css/app.css"
+  ],
+  "js": [
+  ]
+}

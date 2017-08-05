@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Blocstarter</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet">
+    <!-- End Font -->
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="css/core-550ad82397.css">
+    <link rel="stylesheet" href="css/app-d41d8cd98f.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+    <input id="styleguide-menu-toggle" type="checkbox" class="styleguide__menu-target">
+
+    <label for="styleguide-menu-toggle" class="styleguide__menu-trigger">
+        Styleguide
+    </label>
+
+    <nav class="styleguide__menu-nav">
+        <div class="styleguide__section-inner">
+            <ul class="list-bare styleguide__list">
+                <li class="box m-none">
+                    <a class="fw1" href="#settings">1. Settings</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#tools">2. Tools</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#base">3. Base</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#objects">4. Objects</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#components">5. Components</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#compositions">6. Compositions</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page">
+        <section class="styleguide__hero" style="background-image: url(https://images.unsplash.com/photo-1435764341253-b55543e9ddd9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=1080&fit=crop&s=ddd99e58eff819718bd01e37bbb326ec);">
+    <div class="styleguide__section-inner ph3 tc white w-100 mw6">
+        <h1 class="bg-white navy mb0 pa5 f1 lh-title">Stuboki UI</h1>
+        <h4 class="mb4 mt0 pa3 fw1 tracked-mega ttu bg-black">Styleguide</h4>
+        <h2 class="mb0 f2 fw1 white">Contents</h2>
+    </div>
+</section>
+<nav class="box">
+    <ul class="list-bare styleguide__list mb0">
+        <li class="box m-none dib">
+            <a class="fw1" href="#settings">1. Settings</a>
+        </li>
+
+        <li class="box m-none dib">
+            <a class="fw1" href="#tools">2. Tools</a>
+        </li>
+
+        <li class="box m-none dib">
+            <a class="fw1" href="#base">3. Base</a>
+        </li>
+
+        <li class="box m-none dib">
+            <a class="fw1" href="#objects">4. Objects</a>
+        </li>
+
+        <li class="box m-none dib">
+            <a class="fw1" href="#components">5. Components</a>
+        </li>
+
+        <li class="box m-none dib">
+            <a class="fw1" href="#compositions">6. Compositions</a>
+        </li>
+    </ul>
+</nav>
+
+<section class="styleguide__content">
+
+    <!-- SETTINGS -->
+    <div id="settings" class="styleguide__overview">
+        <div class="styleguide__title f2">Settings</div>
+
+        <div id="colors" id="colors" class="styleguide__sub-title bb b--black-10 f3 b">Colors</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- COLORS -->
+            <ul class="list-bare styleguide__block-preview">
+                <li>
+                    <div class="p-large b color-primary">$color-primary</div>
+                    <div class="col col--row">
+                        <div class="col__item w1/2 box color-primary--darken">-darken;</div>
+                        <div class="col__item w1/2 box color-primary--lighten">-lighten;</div>
+                    </div>
+                    <p>#09F</p>
+                </li>
+                <li>
+                    <div class="p-large b color-secondary">$color-secondary</div>
+                    <div class="col col--row">
+                        <div class="col__item w1/2 box color-secondary--darken">-darken;</div>
+                        <div class="col__item w1/2 box color-secondary--lighten">-lighten;</div></div>
+                    <p>#58595B</p>
+                </li>
+
+                <li>
+                    <div class="p-large b color-black">$color-black</div>
+
+                    <div class="col col--row">
+                        <div class="col__item w1/2 box color-black--darken">-darken;</div>
+                        <div class="col__item w1/2 box color-black--lighten">-lighten;</div></div>
+                    <p>#F2F2F2</p>
+                </li>
+
+
+                <li>
+                    <div class="p-large b color-grey">$color-grey</div>
+
+                    <div class="col col--row">
+                        <div class="col__item w1/2 box color-grey--darken">-darken;</div>
+                        <div class="col__item w1/2 box color-grey--lighten">-lighten;</div></div>
+                    <p>#F2F2F2</p>
+                </li>
+            </ul>
+            <!-- End COLORS-->
+        </div>
+    </div>
+</section>
+
+
+<div id="gutters" class="styleguide__sub-title bb b--black-10 f3 b">Gutters</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- GUTTERS -->
+            <ul class="list-bare styleguide__block-preview">
+
+                <li>
+                    <div class="box--tiny dib color-primary">
+
+                        <div class="bg-white box">
+                            $gutter-tiny: 3px;
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="box--small dib color-primary">
+                        <div class="bg-white box">
+                            $gutter-small: 6px;
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="box dib color-primary">
+
+                        <div class="bg-white box">
+                            $gutter-stack: 12px;
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="box--medium dib color-primary">
+                        <div class="bg-white box">
+                            $gutter-medium: 24px;
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="box--large dib color-primary">
+                        <div class="bg-white box">
+                            $gutter-large: 36px;
+
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="box--xlarge dib color-primary">
+                        <div class="bg-white box">
+                            $gutter-xlarge: 48px;
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="box--xxlarge dib color-primary">
+                        <div class="bg-white box">
+                            $gutter-xxlarge: 60px;
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- End GUTTERS-->
+        </div>
+    </div>
+</section>
+
+
+<div id="Typography" class="styleguide__sub-title bb b--black-10 f3 b">Typography</div>
+<div id="typefaces" class="styleguide__sub-title f4">Typefaces</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+            <h2 class="fw3">Heading. Hind 300</h2>
+            <h2 class="fw5">Heading. Hind 500</h2>
+            <h2 class="fw7">Heading. Hind 700</h2>
+
+            <p class="mb0">Body. Open Sans 300</p>
+            <p class="mt0 fw7">Body. Open Sans 400</p>
+
+        </div>
+    </div>
+</section>
+
+<div id="headings" class="styleguide__sub-title f4">Headings</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="styleguide__heading-primary box">
+            <h1>h1. Primary heading</h1>
+            <h2>h2. Primary heading</h2>
+            <h3>h3. Primary heading</h3>
+            <h4>h4. Primary heading</h4>
+            <h5>h5. Primary heading</h5>
+            <h6>h6. Primary heading</h6>
+        </div>
+    </div>
+</section>
+
+
+<div id="paragraphs" id="paragraphs" class="styleguide__sub-title f4">Paragraphs</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+            <h2>Lorem ipsum dolor</h2>
+
+            <h3>Lorem ipsum dolor sit.</h3>
+
+            <!-- Paragraphs -->
+            <p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+
+            <p><strong> Lorem ipsum dolor</strong> sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+            <!-- End Paragraphs -->
+
+        </div>
+    </div>
+</section>
+
+    </div>
+    <!-- END SETTINGS -->
+
+
+    <!-- TOOLS -->
+    <div id="tools" class="styleguide__overview">
+        <div class="styleguide__title f2">Tools</div>
+
+        <div id="mixins" class="styleguide__sub-title bb b--black-10 f3 b">Mixins</div>
+<section>
+    <div class="section__inner">
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Mixin name</th>
+                    <th>What it does</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p><strong>Font-size</strong></p>
+                        <code>include @font-size</code>
+                    </td>
+                    <td>
+                        Genarate rem font-size with px fallback and baseline-compatible line-height for vertical rhythm
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>Medias</strong></p>
+                        <code>include @respond-min-width</code> <br>
+                        <code>include @respond-max-width</code> <br>
+                        <code>include @respond-min-height</code> <br>
+                        <code>include @respond-max-height</code> <br>
+                        <code>include @respond-min-combi</code> <br>
+                        <code>include @respond-max-combi</code> <br>
+                    </td>
+                    <td>
+                        Genarate media queries widths / heights or combi breakpoints that map values to talk with javascript
+
+                        <a href="http://clubmate.fi/a-lesson-in-sass-maps-make-sass-media-queries-talk-to-javascript/" t9arget="_blank">Sass maps make sass media talk to javascript</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div id="utils" class="styleguide__sub-title bb b--black-10 f3 b">Utils - a series of utility classes</div>
+<section>
+    <div class="section__inner">
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Class name</th>
+                    <th>Modifier</th>
+                    <th>Class Examples</th>
+                    <th>How to use?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p><strong>Widths</strong></p>
+                        <code>w[numerator/denominator]@[breakpoint-name]</code>
+                    </td>
+                    <td>
+                        <p><strong>Breakpoints</strong></p>
+                        <code>@small</code> <br>
+                        <code>@tablet</code> <br>
+                        <code>@desktop</code>
+                    </td>
+                    <td>
+                        <code>w1/5</code> <br>
+                        <code>w2/3</code> <br>
+                        <code>w1/2@desktop</code> <br>
+                        <code>w2/4@small</code>
+                    </td>
+                    <td>
+                        Used to give a layout system an fluid width & flexibel responsive variants
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>Spacings</strong></p>
+                        <code>m[spacing-direction]-[spacing-size]</code> <br><br>
+                        <code>p[spacing-direction]-[spacing-size]</code>
+
+                    </td>
+                    <td>
+                        <p><strong>Spacing-direction</strong></p>
+                        <code>t (top)</code> <br>
+                        <code>r (right)</code> <br>
+                        <code>b (bottom)</code> <br>
+                        <code>l (left)</code> <br>
+                        <code>h (horizontal)</code> <br>
+                        <code>v (vertical)</code> <br>
+                        <p><strong>Spacing-size</strong></p>
+                        <code>null (1/2 gutter)</code> <br>
+                        <code>-tiny (1/4)</code> <br>
+                        <code>-small (1/3)</code> <br>
+                        <code>-medium (1)</code> <br>
+                        <code>-large (x2)</code> <br>
+                        <code>-xlarge (x2.5)</code> <br>
+                        <code>-auto (auto)</code> <br>
+                        <code>-none (0)</code> <br>
+                    </td>
+                    <td>
+                        <p><strong>Margin</strong></p>
+                        <code>m</code> <br>
+                        <code>m-auto</code> <br>
+                        <code>mt</code> <br>
+                        <code>m-none</code> <br>
+                        <code>mv-large</code> <br>
+                        <code>mr-tiny</code> <br>
+
+                        <p><strong>Padding</strong></p>
+                        <code>p</code> <br>
+                        <code>p-none</code> <br>
+                        <code>ph</code> <br>
+                        <code>pv-auto</code> <br>
+                        <code>pv-large</code> <br>
+                        <code>pr-small</code> <br>
+
+                    </td>
+                    <td>
+                        Used to give specific <i>Margin or Padding spacing</i> values onto elements
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div id="helpers" class="styleguide__sub-title bb b--black-10 f3 b">Classes Helpers</div>
+<section>
+    <div class="section__inner">
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Class name</th>
+                    <th>How to use?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>accessibility</code>
+                    </td>
+                    <td>
+                        Used for hiding content. It's important that a technique be implemented that results in the desired outcome and accessibility
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>group</code>
+                    </td>
+                    <td>
+                        Used in float layouts where elements are floated to be stacked horizontally (Clearfix)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>skip-to-main</code>
+                    </td>
+                    <td>
+                        Used to skip navigation link to content, pointing to an anchor link placed in the same page which allow the user to skip directly to the main content. Having a skip to main content link appear when it receives keyboard focus
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+    </div>
+    <!-- END TOOLS -->
+
+
+    <!-- BASE -->
+    <div id="base" class="styleguide__overview">
+        <div class="styleguide__title f2">Base</div>
+
+        <div id="icons" class="styleguide__sub-title bb b--black-10 f3 b">Icons</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- ICONS -->
+            <ul class="list-bare styleguide__block-preview">
+                <li>
+                    <div class="styleguide__icon-placeholder">
+                        <svg class="icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+                        <path d="M14.4,12.5L24.6,2.4c0.3-0.3,0.4-0.6,0.4-1c0-0.4-0.1-0.7-0.4-1c-0.5-0.5-1.4-0.5-1.9,0L12.5,10.6L2.3,0.5
+                        C1.8,0,0.9,0,0.4,0.5C0.1,0.8,0,1.1,0,1.5c0,0.4,0.1,0.7,0.4,1l10.2,10.1L0.4,22.6c-0.3,0.3-0.4,0.6-0.4,1c0,0.4,0.1,0.7,0.4,1
+                        c0.3,0.3,0.6,0.4,1,0.4c0.4,0,0.7-0.1,1-0.4l10.2-10.1l10.2,10.1c0.3,0.3,0.6,0.4,1,0.4c0.4,0,0.7-0.1,1-0.4c0.3-0.3,0.4-0.6,0.4-1
+                        c0-0.4-0.1-0.7-0.4-1L14.4,12.5z"/>
+                        </svg>
+                    </div>
+                    <p>close</p>
+                </li>
+
+                <li>
+                    <div class="styleguide__icon-placeholder">
+                        <svg class="icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+                        <path d="M14.4,12.5L24.6,2.4c0.3-0.3,0.4-0.6,0.4-1c0-0.4-0.1-0.7-0.4-1c-0.5-0.5-1.4-0.5-1.9,0L12.5,10.6L2.3,0.5
+                        C1.8,0,0.9,0,0.4,0.5C0.1,0.8,0,1.1,0,1.5c0,0.4,0.1,0.7,0.4,1l10.2,10.1L0.4,22.6c-0.3,0.3-0.4,0.6-0.4,1c0,0.4,0.1,0.7,0.4,1
+                        c0.3,0.3,0.6,0.4,1,0.4c0.4,0,0.7-0.1,1-0.4l10.2-10.1l10.2,10.1c0.3,0.3,0.6,0.4,1,0.4c0.4,0,0.7-0.1,1-0.4c0.3-0.3,0.4-0.6,0.4-1
+                        c0-0.4-0.1-0.7-0.4-1L14.4,12.5z"/>
+                        </svg>
+                    </div>
+                    <p>close</p>
+                </li>
+
+                <li>
+                    <div class="styleguide__icon-placeholder">
+                        <svg class="icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+                        <path d="M14.4,12.5L24.6,2.4c0.3-0.3,0.4-0.6,0.4-1c0-0.4-0.1-0.7-0.4-1c-0.5-0.5-1.4-0.5-1.9,0L12.5,10.6L2.3,0.5
+                        C1.8,0,0.9,0,0.4,0.5C0.1,0.8,0,1.1,0,1.5c0,0.4,0.1,0.7,0.4,1l10.2,10.1L0.4,22.6c-0.3,0.3-0.4,0.6-0.4,1c0,0.4,0.1,0.7,0.4,1
+                        c0.3,0.3,0.6,0.4,1,0.4c0.4,0,0.7-0.1,1-0.4l10.2-10.1l10.2,10.1c0.3,0.3,0.6,0.4,1,0.4c0.4,0,0.7-0.1,1-0.4c0.3-0.3,0.4-0.6,0.4-1
+                        c0-0.4-0.1-0.7-0.4-1L14.4,12.5z"/>
+                        </svg>
+                    </div>
+                    <p>close</p>
+                </li>
+            </ul>
+            <!-- End ICONS-->
+        </div>
+    </div>
+</section>
+
+<div id="navigations" class="styleguide__sub-title bb b--black-10 f3 b">Navigations</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- NAVIGATIONS -->
+                <h3>Button link</h3>
+                <a href="" class="btn">button</a>
+            <!-- End NAVIGATIONS -->
+        </div>
+    </div>
+</section>
+
+<div id="blockquote" id="paragraphs" class="styleguide__sub-title f4">Blockquote</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- Blockquote -->
+            <blockquote>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            </blockquote>
+            <!-- End Blockquote -->
+
+        </div>
+    </div>
+</section>
+
+
+<div id="lists" class="styleguide__sub-title bb b--black-10 f3 b">Lists</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- List -->
+            <h3>Definition List</h3>
+
+            <dl>
+                <dt>Definition List Title</dt>
+                <dd>This is a definition list division.</dd>
+            </dl>
+
+            <h3>Ordered List</h3>
+            <ol>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ol>
+
+            <h3>Unordered List</h3>
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+
+            <h3>Default-ol Ordered List</h3>
+            <ol>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ol>
+
+            <h3>Default-ul Unordered List</h3>
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+            <!-- End List -->
+
+        </div>
+    </div>
+</section>
+
+
+<div id="tables" class="styleguide__sub-title bb b--black-10 f3 b">Tables</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- table -->
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <th>Table Header 1</th><th>Table Header 2</th><th>Table Header 3</th>
+                    </tr>
+
+                    <tr>
+                        <td>Division 1</td><td>Division 2</td><td>Division 3</td>
+                    </tr>
+
+                    <tr>
+                        <td>Division 1</td><td>Division 2</td><td>Division 3</td>
+                    </tr>
+
+                    <tr>
+                        <td>Division 1</td><td>Division 2</td><td>Division 3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- table -->
+
+        </div>
+    </div>
+</section>
+
+
+<div id="forms" class="styleguide__sub-title bb b--black-10 f3 b">Forms</div>
+<section class="section">
+    <div class="section__inner">
+        <div class="box">
+
+            <!-- Fieldset -->
+            <fieldset>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+
+                <!-- Form -->
+                <form lpformnum="1">
+                    <h2>Form Element</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui.</p>
+
+                    <p><label for="text_field">Text Field:</label>
+                        <input type="text" id="text_field" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAeJJREFUWAntk88rRFEUx71nSlnMkpK/YMTCBmVBibKQpWRhoShspgw1Y2aahQUlFn5sLEwpTUoRUmInURZkZmsjFtYSmudz5OgaZmHjKffV6Xu+53zPPeed+55T4tOTTCYHaD3o+tRf2oawOj8HeHt33wcIyBjcRwUwjtVj167rLsbj8TP8Tw+6csdxxjzPayZxj59OJBJ7n0SQTCZTmsvlRtC1Q5+wTWrThTrhLolq8AJxGGvB+vP5/DHxbrNAmsNPySXRtGE9+LvEw6aOuJPNZnfIzeF3Yt3YKrolU6e+XME0gkoNCMJlM8sUvW3oPRchXvPumzCFrkoDqVSqF12HckViQ+SalCvKAK1KTKRAhpIvVZ9iujKu4uNg6r7VySHkWvQwRRnAU1KIfAtFc4Vag/+oRgY4Moo/XN7qjnvMaQB+qL6JxB8DgcCxxorpJM8GvvRyKY5IMz1AEP4MDHK3LxqneIb4pXJFYhPRaPRWOX/POrFd5YrEFjjvRLmiG4vFbiC1CKTBAbYCb0S8pSJB+EMwGGwgP4ntY2tYB7/hvKkj5oVCoS5wFNvGNrjKPupHTJ36jjq/jQw0S89h+QZ8ff7vAHwbV6z+3Nf12+Z2A3YDdgN2A3YDdgN2A3YDf2IDrwcSt9jHU+IqAAAAAElFTkSuQmCC&quot;); background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; background-repeat: no-repeat;"></p>
+
+                    <p><label for="text_area">Text Area:</label>
+                        <textarea id="text_area"></textarea></p>
+
+
+                    <p><label for="select_element">Select Element:</label>
+                        <select name="select_element">
+                            <optgroup label="Option Group 1">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </optgroup>
+                            <optgroup label="Option Group 2">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </optgroup>
+                        </select></p>
+
+
+                    <p><label for="radio_buttons">Radio Buttons:</label>
+                        <label>
+                            <input type="radio" class="radio" name="radio_button" value="radio_1"> Radio 1
+                        </label>
+                        <label>
+                            <input type="radio" class="radio" name="radio_button" value="radio_2"> Radio 2
+                        </label>
+                        <label>
+                            <input type="radio" class="radio" name="radio_button" value="radio_3"> Radio 3
+                        </label></p>
+
+
+                    <p><label for="checkboxes">Checkboxes:</label>
+                        <label>
+                            <input type="checkbox" class="checkbox" name="checkboxes" value="check_1"> Checkbox 1
+                        </label>
+                        <label>
+                            <input type="checkbox" class="checkbox" name="checkboxes" value="check_2"> Checkbox 2
+                        </label>
+                        <label>
+                            <input type="checkbox" class="checkbox" name="checkboxes" value="check_3"> Checkbox 3
+                        </label></p>
+
+
+                    <p><label for="password">Password:</label>
+                        <input type="password" class="password" name="password" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAeJJREFUWAntk88rRFEUx71nSlnMkpK/YMTCBmVBibKQpWRhoShspgw1Y2aahQUlFn5sLEwpTUoRUmInURZkZmsjFtYSmudz5OgaZmHjKffV6Xu+53zPPeed+55T4tOTTCYHaD3o+tRf2oawOj8HeHt33wcIyBjcRwUwjtVj167rLsbj8TP8Tw+6csdxxjzPayZxj59OJBJ7n0SQTCZTmsvlRtC1Q5+wTWrThTrhLolq8AJxGGvB+vP5/DHxbrNAmsNPySXRtGE9+LvEw6aOuJPNZnfIzeF3Yt3YKrolU6e+XME0gkoNCMJlM8sUvW3oPRchXvPumzCFrkoDqVSqF12HckViQ+SalCvKAK1KTKRAhpIvVZ9iujKu4uNg6r7VySHkWvQwRRnAU1KIfAtFc4Vag/+oRgY4Moo/XN7qjnvMaQB+qL6JxB8DgcCxxorpJM8GvvRyKY5IMz1AEP4MDHK3LxqneIb4pXJFYhPRaPRWOX/POrFd5YrEFjjvRLmiG4vFbiC1CKTBAbYCb0S8pSJB+EMwGGwgP4ntY2tYB7/hvKkj5oVCoS5wFNvGNrjKPupHTJ36jjq/jQw0S89h+QZ8ff7vAHwbV6z+3Nf12+Z2A3YDdgN2A3YDdgN2A3YDf2IDrwcSt9jHU+IqAAAAAElFTkSuQmCC&quot;); background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; background-repeat: no-repeat;"></p>
+
+
+                    <p><label for="file">File Input:</label>
+                        <input type="file" class="file" name="file"></p>
+
+
+                    <p><input type="submit" value="Submit"></p>
+                </form>
+                <!-- End Form -->
+            </fieldset>
+            <!-- End Fieldset -->
+
+        </div>
+    </div>
+</section>
+
+    </div>
+    <!-- END BASSE -->
+
+
+    <div id="objects" class="styleguide__overview">
+
+        <div class="styleguide__title f2">Objects</div>
+        <div id="section" class="styleguide__sub-title bb b--black-10 f3 b">Section</div>
+<section class="section">
+    <div class="section__inner">
+
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Block</th>
+                    <th>Element / Modifier</th>
+                    <th>What it does?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>section</code>
+                    </td>
+                    <td></td>
+                    <td>A wrapper element and can be used to give space between other section. It has by default an full-width, but for some case you can add fixed-with for example wide-screen at 1700px above.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><code>__inner</code></td>
+                    <td>A containing element to wrap elements inside a section. It has a fixed width and a half gutter to stack elements that placed with half gutter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div id="box" class="styleguide__sub-title bb b--black-10 f3 b">Box</div>
+<section class="section">
+    <div class="section__inner">
+
+        <table class="styleguide__table">
+            <thead>
+                <tr>
+                    <th>Block</th>
+                    <th>Element / Modifier</th>
+                    <th>What it does?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>box</code>
+                    </td>
+                    <td></td>
+                    <td>A box element spacing scale based on powers of different base font-size / lineheight. By default it has a half gutter that stack with other elements and section__inner
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <code>--tiny[@breakpoint-name] (1/4)</code> <br>
+                        <code>--small[@breakpoint-name]  (1/3)</code> <br>
+                        <code>--medium[@breakpoint-name]  (1)</code> <br>
+                        <code>--large[@breakpoint-name]  (x2)</code> <br>
+                        <code>--xlarge[@breakpoint-name]  (x2.5)</code> <br><br>
+
+                        <code>@small</code> <br>
+                        <code>@tablet</code> <br>
+                        <code>@desktop</code> <br>
+                    </td>
+                    <td>Use to delare spacing scale based on a defined ratio</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <code>--center</code> <br>
+                        <code>--right</code> <br>
+                        <code>--left</code> <br>
+                    </td>
+                    <td>Used to align text and links</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div class="styleguide__title f2">Bloc stack foundation</div>
+<section class="section bg-blue">
+    <div class="section__inner h-100 tc bg-light-blue">
+        <div class="box h-100 bg-lightest-blue">
+            <div class="bg-washed-blue h3">
+            </div>
+
+        </div>
+        <div class="box h-100 bg-lightest-blue">
+            <div class="bg-washed-blue h3">
+            </div>
+        </div>
+    </div>
+</section>
+
+    </div>
+
+
+    <div id="components" class="styleguide__overview">
+        <div class="styleguide__title f2">Components</div>
+
+        
+    </div>
+
+    <div id="compositions" class="styleguide__overview">
+        <div class="styleguide__title f2">Compositions</div>
+
+        
+    </div>
+
+</section> <!-- end stylguide content -->
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <label for="styleguide-menu-toggle" class="styleguide__overlay" tabindex="-1"></label>
+
+
+    <script src="js/core-d947cafd78.js"></script>
+    <script src="js/app-3309c08f91.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+// ========================================================
+// MEDIA
+// ========================================================
+
+/**
+* Place any image- and text-like content side-by-side, as per:
+* http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+*/
+
+.media {
+	display: block;
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+
+.media__img {
+	float: left;
+	margin-right: $gutter-stack;
+
+	> img {
+		display: block;
+	}
+
+}
+
+
+.media__body {
+	overflow: hidden;
+	display: block;
+
+	&,
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+
+/* Reversed media objects
+========================================================================== */
+
+.media--reverse {
+
+	> .media__img {
+		float: right;
+	}
+
+}
+
+
+/* Gutterless media objects
+========================================================================== */
+
+.media--flush {
+
+	> .media__img {
+		margin-right: 0;
+		margin-left:  0;
+	}
+
+}
