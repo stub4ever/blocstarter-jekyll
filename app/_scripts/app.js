@@ -1,2 +1,5 @@
-console.log('hi app');
+import Greet from './modules/Greet';
+
+var blocstarter = new Greet('Blocstarter');
+blocstarter.greet();
 

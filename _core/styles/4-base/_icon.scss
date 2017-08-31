@@ -1,0 +1,15 @@
+// Icon
+//
+// Markup:
+//
+// Weight: 4
+//
+// Styleguide: Base.3
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 22px;
+    width: 22px;
+    transition: fill $time-fast ease-in-out;
+}

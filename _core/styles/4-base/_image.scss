@@ -1,0 +1,35 @@
+// Image
+//
+// Markup:
+// <picture>
+//    <!-- webp images -->
+//    <!-- min-width MQ 1280px -->
+//    <source data-srcset="assets/images/hero-large.webp, assets/images/hero-large@2x.webp 2x" media="(min-width: 1280px)">
+//    <!-- min-width MQ 640px -->
+//    <source data-srcset="assets/images/hero-medium.webp, assets/images/hero-medium@2x.webp 2x" media="(min-width: 640px)">
+//    <!-- min-width MQ 320 -->
+//    <source data-srcset="assets/images/hero-small.webp, assets/images/hero-small@2x.webp 2x" media="(min-width: 640px)">
+//    <!-- jpeg images -->
+//    <!-- min-width MQ 1280px -->
+//    <source data-srcset="assets/images/hero-large.jpg, assets/images/hero-large@2x.jpg 2x" media="(min-width: 1280px)">
+//    <!-- min-width MQ 640px -->
+//    <source data-srcset="assets/images/hero-medium.jpg, assets/images/hero-medium@2x.jpg 2x" media="(min-width: 640px)">
+//    <!-- min-width MQ 320 -->
+//    <img class="lazyload" data-srcset="assets/images/hero-small.jpg, assets/images/hero-small@2x.jpg 2x" alt="Alt text">
+// </picture>
+//
+// Weight: 4
+//
+// Styleguide: Base.9
+
+img {
+  max-width: 100%; // Fluid images for responsive purposes.
+  font-style: italic; // Offset `alt` text from surrounding copy.
+  vertical-align: middle; // removes the whitespace that appears under `img`
+}
+
+// If a `width` and/or `height` attribute have been explicitly defined, let’s not make the image fluid.
+img[width],
+img[height] {
+  max-width: none;
+}

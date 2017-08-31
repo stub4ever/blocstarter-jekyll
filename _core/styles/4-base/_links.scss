@@ -1,0 +1,23 @@
+// Links
+//
+// Markup:
+// <a href="#" title="test link">test link</a>
+//
+// Weight: 4
+//
+// Styleguide: Base.5
+
+
+a {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: #000;
+        color: #fff;
+        text-shadow: none;
+        text-decoration: none;
+    }
+}

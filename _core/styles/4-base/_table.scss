@@ -1,0 +1,27 @@
+// Table
+//
+// Markup:
+// <table cellspacing="0" cellpadding="0">
+//     <tbody>
+//         <tr>
+//             <th>Table Header 1</th><th>Table Header 2</th><th>Table Header 3</th>
+//         </tr>
+//         <tr>
+//             <td>Division 1</td><td>Division 2</td><td>Division 3</td>
+//         </tr>
+//         <tr>
+//             <td>Division 1</td><td>Division 2</td><td>Division 3</td>
+//         </tr>
+//         <tr>
+//             <td>Division 1</td><td>Division 2</td><td>Division 3</td>
+//         </tr>
+//     </tbody>
+// </table>
+//
+// Weight: 4
+//
+// Styleguide: Base.8
+
+table {
+  width: 100%; /* [1] fill up as much space as possible */
+}

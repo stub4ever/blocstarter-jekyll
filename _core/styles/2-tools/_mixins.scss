@@ -1,0 +1,159 @@
+// Mixins
+//
+// Weight: 1
+//
+// Styleguide: Tools.2
+
+
+// Font-size
+//
+// @mixin font-size($font-size, $line-height: auto, $important: false -  Generate a font-size and baseline-compatible line-height.
+//
+// Weight: 2
+//
+// Styleguide: Tools.2.1
+
+
+// Generate a font-size and baseline-compatible line-height.
+@mixin font-size($font-size, $line-height: auto, $important: false) {
+
+  @if (type-of($font-size) == number) {
+    @if (unit($font-size) != "px") {
+      @error "`#{$font-size}` needs to be a pixel value.";
+    }
+  } @else {
+    @error "`#{$font-size}` needs to be a number.";
+  }
+
+  @if ($important == true) {
+    $important: !important;
+  } @elseif ($important == false) {
+    $important: null;
+  } @else {
+    @error "`#{$important}` needs to be `true` or `false`."
+  }
+
+  // We provide a `px` fallback for old IEs not supporting `rem` values.
+  font-size: $font-size $important;
+  font-size: ($font-size / $base-size) * 1rem $important;
+
+  @if ($line-height == 'auto') {
+    line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size) $important;
+  }
+
+  @else {
+
+    @if (type-of($line-height) == number or $line-height == 'inherit' or $line-height == 'normal') {
+      line-height: $line-height $important;
+    }
+
+    @elseif ($line-height != 'none' and $line-height != false) {
+      @error "D’oh! `#{$line-height}` is not a valid value for `$line-height`."
+    }
+
+  }
+}
+
+
+// Respond to width or height
+//
+// - @mixin respond-min-width($width) - Show html body after content a min-width
+// - @mixin respond-max-width($width) - Show html body after content a max-width
+// - @mixin respond-min-height($height) - Show html body after content a min-height
+// - @mixin respond-max-height($height) - Show html body after content a max-height
+// - @mixin respond-min-combi($width, $height) - Show html body after content a min combi
+// - @mixin respond-max-combi($width, $height) - Show html body after content a max combi
+//
+// Weight: 2
+//
+// Styleguide: Tools.2.2
+
+$fix-mqW: false !default;
+$fix-mqH: false !default;
+
+@mixin respond-min-width($width) {
+    @if $fix-mqW {
+        @if $fix-mqW >= $width {
+            body:after { content:"#{$width}"; }
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: $width) {
+            body:after { content:"#{$width}"; }
+            @content;
+        }
+    }
+}
+@mixin respond-max-width($width) {
+    @if $fix-mqW {
+        @if $fix-mqW <= $width {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+@mixin respond-min-height($height) {
+    @if $fix-mqH {
+        @if $fix-mqH >= $height {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-height: $height) {
+            @content;
+        }
+    }
+}
+@mixin respond-max-height($height) {
+    @if $fix-mqH {
+        @if $fix-mqH <= $height {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-height: $height) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-min-combi($width, $height) {
+    @if $fix-mqW {
+        @if $fix-mqW >= $width {
+            body:after { content:"#{$width}"; }
+            @content;
+        }
+    } @else if $fix-mqH {
+        @if $fix-mqH >= $height {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: $width) and (min-height: $height) {
+            body:after { content:"#{$width}"; }
+            @content;
+        }
+    }
+}
+
+@mixin respond-max-combi($width, $height) {
+    @if $fix-mqW {
+        @if $fix-mqW <= $width {
+            @content;
+        }
+    } @else if $fix-mqH {
+        @if $fix-mqH <= $height {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-width: $width) and (max-height: $height) {
+            @content;
+        }
+    }
+}

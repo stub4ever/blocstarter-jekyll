@@ -1,0 +1,45 @@
+// Global
+//
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+// <br><br>
+// 1. Container & wrapper
+// 2. Breakpoints
+// 3. Animations
+// 4. Family fonts
+//
+// Styleguide Settings.3
+
+
+// Standardise some UI treatments
+
+// Width settings of sections of  'section.scss'
+$wrapper-width:     auto;
+$container-width:   75rem; // 1200px
+
+// View Devices breakpoints
+$view-small:        30rem; // 480px
+$view-tablet:       48rem; // 768px
+$view-desktop:      64rem; // 1024px
+
+// Animation
+$time-fast: .2s; $time: .4s; $time-slow: .6s;
+
+// Family fonts
+$font-primary: 'Open Sans', sans-serif;
+$font-secondary: 'Hind', sans-serif;
+
+
+
+
+@font-face {
+    font-family:"";
+    src:url("/assets/fonts/.eot?#iefix");
+    src:url("/assets/fonts/.eot?#iefix") format("eot"),
+        url("/assets/fonts/.woff2") format("woff2"),
+        url("/assets/fonts/.woff") format("woff"),
+        url("/assets/fonts/.ttf") format("truetype"),
+        url("/assets/fonts/") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}

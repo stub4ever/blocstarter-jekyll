@@ -1,0 +1,47 @@
+// Panel
+//
+// Markup:
+// <nav class="panel" role="navigation">
+//     <input id="panel-toggle" type="checkbox" class="panel__nav--target"></input>
+//     <span class="accessibility">Menu</span>
+//     <label for="panel-toggle" class="panel__toggle">Menu</label>
+//     <ul class="panel__nav list-bare">
+//         <li class="panel__nav-item"><a href="/" class="panel__nav-link panel__nav-link--active">Home</a></li>
+//         <li class="panel__nav-item"><a href="#" class="panel__nav-link">Sub</a></li>
+//     </ul>
+// </nav>
+//
+//
+// Styleguide: Components.Panel.1
+
+
+.panel {
+    margin: 0;
+    position: absolute;
+    right: $gutter;
+    top: $gutter;
+    z-index: 10;
+}
+
+
+.panel__nav {
+    display: none;
+}
+
+
+.panel__nav--target {
+
+    &:checked {
+        ~ .panel__nav {
+            display: block;
+        }
+
+        ~ .panel__close {
+            &:after {
+                content: 'close';
+                display: block;
+                visibility: visible;
+            }
+        }
+    }
+}

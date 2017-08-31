@@ -1,1 +1,1 @@
-console.log('hi core');
+var modal = Blocstart('.js-modal');

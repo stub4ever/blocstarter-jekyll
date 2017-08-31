@@ -1,0 +1,74 @@
+// Colors
+//
+// Styleguide Settings.2
+
+
+// Brand
+//
+// The main colors for branding.
+//
+// $color-primary       -  #000; Primary color
+// $color-secondary     -  #8e44ad; Secondary color
+// $color-black         -  #2A2A2A; Main Black
+// $color-grey          -  #E0E7F0; Main Grey
+//
+// Styleguide Settings.2.1
+
+
+$color-primary: #09F;
+$color-primary-darken: darken($color-primary, 5%);
+$color-primary-lighten: lighten($color-primary, 5%);
+
+$color-secondary:#58595B;
+$color-secondary-darken: darken($color-secondary, 10%);
+$color-secondary-lighten: lighten($color-secondary, 5%);
+
+$color-black: #2A2A2A;
+$color-black-darken: darken($color-black, 5%);
+$color-black-lighten: lighten($color-black, 1%);
+
+$color-grey: #E0E7F0;
+$color-grey-darken: darken($color-grey, 5%);
+$color-grey-lighten: lighten($color-grey, 1%);
+
+
+// Typography
+//
+// $color-text       -  #2A2A2A; $color-black
+//
+// Styleguide Settings.2.2
+
+
+$color-text: $color-black;
+
+
+// Form
+//
+// Form colors for branding.
+//
+// $color-input         - #eaeaea; Input background color
+// $color-input-focus   - #ccc; Input focus background color
+// $color-error         - #CC0000; Error color
+//
+// Styleguide Settings.2.3
+
+
+$color-input: #eaeaea;
+$color-input-focus: #ccc;
+$color-error: #CC0000;
+
+
+// Social Colors
+//
+// Social colors for branding.
+//
+// $social-facebook     - #3b5998; Facebook color
+// $social-linkedin     - #0077B5; Linkedin color
+// $social-twitter      - #55acee; Twitter color
+//
+// Styleguide Settings.2.4
+
+
+$social-facebook: #3b5998;
+$social-linkedin: #0077B5;
+$social-twitter: #55acee;

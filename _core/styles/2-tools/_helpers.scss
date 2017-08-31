@@ -1,0 +1,18 @@
+// Helpers
+//
+//
+// - .accessibility .js-accessibility - Used for hiding content. It's important that a technique be implemented that results in the desired outcome and accessibility
+// - .group - Used in float layouts where elements are floated to be stacked horizontally (Clearfix)
+// - .skip-to-main - Used to skip navigation link to content, pointing to an anchor link placed in the same page which allow the user to skip directly to the main content. Having a skip to main content link appear when it receives keyboard focus
+//
+// Weight: 1
+//
+// Styleguide: Tools.3
+
+
+.accessibility, .js .js-accessibility { clip: rect(1px, 1px, 1px, 1px); height: 1px; overflow: hidden; position: absolute; width: 1px; }
+.accessibility:focus, .accessibility:active { clip: auto; height: auto; overflow: visible; position: fixed; width: auto; }
+.group:before, .group:after { content: " "; display: table; }
+.group:after { clear: both; }
+.skip-to-main { left:-999px; position: absolute; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: -9999; }
+.skip-to-main:focus, .skip-to-main:active {color: #FFF; background-color: #000; left: 0; top: 0; overflow: auto; z-index: 999; }

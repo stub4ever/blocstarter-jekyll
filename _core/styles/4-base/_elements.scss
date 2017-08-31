@@ -1,0 +1,143 @@
+// ========================================================
+// ELEMENTS
+// ========================================================
+
+
+
+html,
+button,
+datalist,
+input,
+select,
+textarea {
+    color: $color-text;
+}
+
+
+// Default spacings
+
+body,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, dd,
+figure,
+hr,
+fieldset, legend {
+    margin:  0;
+    padding: 0;
+}
+
+h2,
+h3,
+p,
+blockquote,
+img,
+table,
+form,
+fieldset,
+pre {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+h2 + p,
+h3 + p,
+h2 + ol,
+h3 + ol,
+h2 + ul,
+h3 + ul {
+    margin-top: 0;
+}
+
+p,
+ol,
+ul,
+blockquote,
+img,
+table,
+form,
+fieldset,
+pre,
+object,
+embed,
+video,
+audio,
+figure,
+figcaption,
+.paragraph,
+h3 {
+    margin-top: $gutter;
+}
+
+p,
+ol,
+ul,
+blockquote,
+img,
+table,
+form,
+fieldset,
+pre,
+object,
+embed,
+video,
+audio,
+figure,
+figcaption,
+address,
+hr {
+    margin-bottom: $gutter/2;
+}
+
+
+// Remove default table spacing.
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+// Reset Chrome and Firefox behaviour which sets a `min-width: min-content
+fieldset {
+    min-width: 0;
+    border: 0;
+}
+
+// Remove trailing margins from nested lists.
+li > {
+
+    ol,
+    ul {
+        margin-bottom: 0;
+    }
+}
+
+dd,
+ol,
+ul {
+    margin-left: $gutter*2;
+}
+
+
+li {
+    margin-bottom: $gutter/2;
+    margin-top: $gutter/2;
+}
+
+datalist,
+input,
+select,
+textarea {
+    padding: $gutter/2 $gutter;
+    background-color: transparent;
+    color: inherit;
+
+    &:focus,
+    &:active {
+        color: inherit;
+    }
+}
+
+
+

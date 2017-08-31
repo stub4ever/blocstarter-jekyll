@@ -14,6 +14,7 @@ var changed           = require('gulp-changed');
 var concat            = require('gulp-concat');
 var gutil             = require('gulp-util');
 var notify            = require('gulp-notify');
+var plumber           = require('gulp-plumber');
 var sourcemaps        = require('gulp-sourcemaps');
 var sequence          = require('run-sequence');
 
@@ -38,8 +39,43 @@ gulp.task('jekyll-build', function (done) {
 });
 
 gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+    gulp.start('kss:dev');
     browser.reload();
 });
+
+
+
+// =============================================================================
+// KSS
+
+// Compile Sass into CSS
+// In production, the CSS is compressed
+// =============================================================================
+
+var shell   = require('gulp-shell');
+
+// if OS is Mac.
+if (process.platform === 'darwin') { var open = 'open'; }
+
+// if OS is Linux.
+else if (process.platform === 'linux') { var open = 'xdg-open'; }
+
+// if OS is Windows.
+else if (process.platform === 'win32') { var open = 'start'; }
+
+gulp.task('kss:dev', shell.task([
+
+    'kss --config kss-config.json'
+
+]));
+
+gulp.task('kss:show', shell.task([
+
+    'kss --config kss-config.json',
+    open + ' kss_styleguide/styleguide/index.html'
+
+]));
+
 
 // =============================================================================
 // SASS
@@ -50,58 +86,71 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 var sass              = require('gulp-sass');
 var sassdoc           = require('sassdoc');
 var sassdoc           = require('require-dir');
-var autoprefixer      = require('gulp-autoprefixer');
+var postcss           = require('gulp-postcss');
+var autoprefixer      = require('autoprefixer');
 var cssnano           = require('gulp-cssnano');
 
 
-gulp.task('coreSass', function() {
+var processors = [
+    autoprefixer
+];
+
+gulp.task('coreStyles:dev', ['kss:dev'], function() {
     return gulp
-        .src(config.core.sass.src)
+        .src(config.core.styles.src)
         .pipe(sourcemaps.init())
         .pipe(sass()).on('error', notify.onError(function (error) {
             return "Problem file : " + error.message;
         }))
-        .pipe(autoprefixer())
+        .pipe(postcss(processors))
         .pipe(cssnano())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.core.sass.dest))
-        .pipe(browser.reload({stream:true}))
-        .pipe(gulp.dest(config.source.path + '/css'));
+        .pipe(gulp.dest(config.core.styles.app_dest))
+        .pipe(gulp.dest(config.core.styles.dev_dest))
+        .pipe(notify({
+            title: 'coreStyles:dev succesfully!',
+            message: 'coreStyles:dev task completed.'
+        }));
 });
 
-gulp.task('sass', function() {
+gulp.task('styles:dev', function() {
     return gulp
-        .src(config.development.sass.src)
+        .src(config.development.styles.src)
         .pipe(sourcemaps.init())
         .pipe(sass()).on('error', notify.onError(function (error) {
             return "Problem file : " + error.message;
         }))
-        .pipe(autoprefixer())
+        .pipe(postcss(processors))
         .pipe(cssnano())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.development.sass.dest))
-        .pipe(browser.reload({stream:true}))
-        .pipe(gulp.dest(config.source.path + '/css'));
+        .pipe(gulp.dest(config.development.styles.app_dest))
+        .pipe(gulp.dest(config.development.styles.dev_dest))
+         .pipe(notify({
+            title: 'styles:dev succesfully!',
+            message: 'styles:dev task completed.'
+        }));
 });
 
 
+
 // =============================================================================
-// KSS
+// MODERNISZR
 
-// Compile Sass into CSS
-// In production, the CSS is compressed
+// Detects custom features we need to test as we like call them for browser supports
+// https://modernizr.com/
 // =============================================================================
+var modernizr = require('gulp-modernizr');
 
-var kss = require('gulp-kss');
-
-gulp.task('styleguide', function () {
-    gulp.src([config.core.sass.src])
-        .pipe(kss({
-            overview: 'app/sass/styleguide.md',
-            templateDirectory: 'app/css/styleguide/template'
-        }))
-        .pipe(gulp.dest('build/development/styleguide/'));
+gulp.task('modernizr:dev', function() {
+    return gulp.src([config.development.styles.dev_dest + '/*.css', config.development.scripts.dest + '/*.js'])
+    .pipe(modernizr({
+        "options": [
+        "setClasses"
+        ]
+    }))
+    .pipe(gulp.dest(config.development.modernizr.dest));
 });
+
 
 // =============================================================================
 // JAVASCRIPT
@@ -110,32 +159,57 @@ gulp.task('styleguide', function () {
 // In production, the file is minified
 // Runs 2 tasks, a core and a src as to seperate the core updates
 // =============================================================================
-var babel = require("gulp-babel");
+var babel               = require("gulp-babel");
+var webpack             = require("webpack");
+var webpackStream       = require('webpack-stream');
+var webpackConfig       = require('../../webpack.config.js');
 
 
-gulp.task('coreJavascript', function() {
+gulp.task('coreScripts:dev', function() {
     return gulp
-        .src(config.core.javascript.src)
+        .src(config.core.scripts.src)
+        .pipe(plumber(function(error){
+            console.log("Error happend!", error.message);
+            this.emit('end');
+        }))
         .pipe(sourcemaps.init())
         .pipe(babel())
+        .pipe(concat(config.core.scripts.mainFile))
         .pipe(sourcemaps.write())
-        .pipe(concat(config.core.javascript.mainFile))
-        .pipe(gulp.dest(config.core.javascript.dest))
-        .pipe(browser.reload({stream:true}))
-        .pipe(gulp.dest(config.source.path + '/js'));
+        .pipe(gulp.dest(config.development.scripts.dest))
+        .pipe(notify({
+            title: 'coreScripts:dev succesfully!',
+            message: 'coreScripts:dev task completed.'
+        }));
 });
 
 
-gulp.task('javascript', function() {
+// gulp.task('scripts:dev', function() {
+//     return gulp
+//         .src(config.development.scripts.src)
+//         .pipe(sourcemaps.init())
+//         .pipe(babel())
+//         .pipe(concat(config.development.scripts.mainFile))
+//         .pipe(sourcemaps.write())
+//         .pipe(gulp.dest(config.development.scripts.dest));
+// });
+
+// babel + webpack
+gulp.task('scripts:dev', ['modernizr:dev'], function(err) {
     return gulp
-        .src(config.development.javascript.src)
+        .src([config.development.scripts.src])
+        .pipe(plumber(function(error){
+            console.log("Error happend!", error.message);
+            this.emit('end');
+        }))
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(webpackStream(webpackConfig), webpack)
         .pipe(sourcemaps.write())
-        .pipe(concat(config.development.javascript.mainFile))
-        .pipe(gulp.dest(config.development.javascript.dest))
-        .pipe(browser.reload({stream:true}))
-        .pipe(gulp.dest(config.source.path + '/js'));
+        .pipe(gulp.dest(config.development.scripts.dest))
+        .pipe(notify({
+            title: 'scripts:dev succesfully!',
+            message: 'scripts:dev task completed.'
+        }));
 });
 
 
@@ -215,12 +289,11 @@ gulp.task('clean:development', function(done) {
 // Build the buildPath folder by running all of the above tasks
 // =============================================================================
 gulp.task('build:development', function(done) {
-    sequence('clean:development', [
-        'jekyll-build',
-        'coreSass',
-        'coreJavascript',
-        'sass',
-        'javascript'
+    sequence('clean:development', ['jekyll-build'], [
+        'styles:dev',
+        'coreStyles:dev',
+        'scripts:dev',
+        'coreScripts:dev',
     ],
     [
         'images',
@@ -234,11 +307,14 @@ gulp.task('build:development', function(done) {
 // Build the devFolder, run the server, and watch for file changes
 // =============================================================================
 gulp.task('default', ['build:development', 'server:development'], function() {
-    gulp.watch([config.core.watch.sass], ['coreSass', browser.reload]);
-    gulp.watch([config.core.watch.javascript], ['coreJavascript', browser.reload]);
     gulp.watch([config.development.watch.jekyll], ['jekyll-rebuild']);
-    gulp.watch([config.development.watch.sass], ['sass', browser.reload]);
-    gulp.watch([config.development.watch.javascript], ['javascript', browser.reload]);
+
+    gulp.watch([config.development.watch.styles], ['styles:dev', browser.reload]);
+    gulp.watch([config.core.watch.styles], ['coreStyles:dev', browser.reload]);
+
+    gulp.watch([config.development.watch.scripts], ['scripts:dev', browser.reload]);
+    gulp.watch([config.core.watch.scripts], ['coreScripts:dev', browser.reload]);
+
     gulp.watch([config.development.watch.assets.images], ['images', browser.reload]);
     gulp.watch([config.development.watch.assets.fonts], ['fonts', browser.reload]);
     gulp.watch([config.development.watch.assets.icons], ['icons', browser.reload]);

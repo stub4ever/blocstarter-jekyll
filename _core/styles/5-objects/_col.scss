@@ -1,0 +1,90 @@
+// Col
+//
+//  * Flex grid system. <br>
+//  The col object provides us with a column-style col system. <br> This file
+//  contains the basic structural elements, but classes should be complemented
+//  with width utilities
+//
+// Markup:
+// <div class="col">
+//     <div class="col__item  w-1/2">
+//     </div>
+//     <div class="col__item  w-1/2">
+//     </div>
+// </div>
+//
+// Styleguide: Objects.5
+
+$cols-fractions: 1 2 3 4 5 !default;
+
+$cols-breakpoints: (
+    'small': $view-small,
+    'tablet': $view-tablet,
+    'desktop': $view-desktop
+    ) !default;
+
+
+.col {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.col--fill {
+    flex-wrap: nowrap;
+}
+
+.col__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+}
+
+.col__item--stretch {
+    align-self: stretch;
+}
+
+
+@mixin cols($columns, $breakpoint: null) {
+
+    // Loop through the number of columns for each denominator of our fractions.
+    @each $denominator in $columns {
+
+        // Begin creating a numerator for our fraction up until we hit the
+        // denominator.
+        @for $numerator from 1 through $denominator {
+
+
+            // Build a class in the format `.col--column[@<breakpoint>]`.
+            .col--column#{$breakpoint} {
+                flex-direction: column;
+            }
+
+            // Build a class in the format `.col--row[@<breakpoint>]`.
+            .col--row#{$breakpoint} {
+                flex-direction: row;
+            }
+
+
+            // Build a class in the format `.col__item-3/4[@<breakpoint>]`.
+            .col__item.w#{$numerator}\/#{$denominator}#{$breakpoint} {
+                flex: 0 0 auto;
+                flex-basis: ($numerator / $denominator) * 100%;
+                max-width: ($numerator / $denominator) * 100%;
+            }
+
+        }
+    }
+}
+
+
+@include cols($cols-fractions);
+
+@each $col-bp-name, $col-bp-value in $cols-breakpoints {
+
+    @media only screen and (min-width: $col-bp-value) {
+        @include cols($cols-fractions, \@#{$col-bp-name});
+    }
+}
+
+

@@ -27,20 +27,21 @@ module.exports = {
     core: {
         path: core,
 
-        sass: {
-            src: core + '/sass/core.scss',
-            dest: development + '/css/'
+        styles: {
+            src: core + '/styles/core.scss',
+            app_dest: app + '/css/',
+            dev_dest: development + '/css/'
         },
 
-        javascript: {
+        scripts: {
             src: core + '/scripts/**/*.js',
             mainFile: 'core.js',
             dest: development + '/js/'
         },
 
         watch: {
-            sass: core + '/sass/{,*/}*.scss',
-            javascript: core + '/scripts/{,*/}*.js'
+            styles: core + '/styles/{,*/}*.scss',
+            scripts: core + '/scripts/{,*/}*.js'
         }
     },
 
@@ -59,16 +60,22 @@ module.exports = {
             config: '_config.yml,_config.dev.yml'
         },
 
-        sass: {
-            src: app + '/_sass/app.scss',
-            dest: development + '/css/'
+        styles: {
+            src: app + '/_styles/app.scss',
+            app_dest: app + '/css/',
+            dev_dest: development + '/css/'
         },
 
-        javascript: {
+        scripts: {
             src: app +'/_scripts/{,*/}*.js',
             mainFile: 'app.js',
             dest: development + '/js/'
         },
+
+        modernizr: {
+            dest: app + '/_scripts/libs'
+        },
+
 
         assets: {
 
@@ -107,8 +114,8 @@ module.exports = {
                 app + '/**/*.{html,markdown,md,yml,json,txt,xml}',
                 app + '/*'
             ],
-            sass:  app + '/_sass/{,*/}*.scss',
-            javascript: app + '/_scripts/{,*/}*.js',
+            styles:  app + '/_styles/{,*/}*.scss',
+            scripts: app + '/_scripts/{,*/}*.js',
 
             assets: {
                 images: app + '/assets/images/{,*/}*',
@@ -144,7 +151,7 @@ module.exports = {
                 options: {}
             },
 
-            javascript: {
+            scripts: {
                 src: development + '/js/*.js',
                 dest: production + '/js/',
                 options: {}

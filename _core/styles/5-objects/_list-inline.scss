@@ -1,0 +1,23 @@
+// List-inline
+//
+// * The list-inline object simply displays a list of items in one line.
+//
+// Markup:
+// <ul class="list-inline">
+//     <li>Lorem ipsum dolor sit amet.</li>
+//     <li>Lorem ipsum dolor sit amet.</li>
+//     <li>Lorem ipsum dolor sit amet.</li>
+// </ul>
+//
+// Styleguide: Objects.11
+
+
+.list-inline {
+    margin-left: 0;
+    margin-right: 0;
+    list-style: none;
+}
+
+    .list-inline li {
+        display: inline-block;
+    }

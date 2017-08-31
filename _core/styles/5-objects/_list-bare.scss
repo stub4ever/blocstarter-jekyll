@@ -1,0 +1,22 @@
+// List-bare
+//
+// * Strip list-like appearance from lists by removing their bullets, and any
+// indentation..
+//
+// Markup:
+// <ul class="list-bare">
+//     <li>Lorem ipsum dolor sit amet.</li>
+//     <li>Lorem ipsum dolor sit amet.</li>
+//     <li>Lorem ipsum dolor sit amet.</li>
+// </ul>
+//
+// Styleguide: Objects.10
+
+
+.list-bare {
+  list-style: none;
+  list-style-image: none;
+  margin-left: 0;
+  margin-top: 0;
+}
+
