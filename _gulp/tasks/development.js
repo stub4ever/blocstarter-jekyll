@@ -262,9 +262,9 @@ gulp.task('server:development', ['build:development'], function() {
         server: config.development.browsersync.baseDir,
         proxy: config.development.browsersync.proxy,
         port: config.development.browsersync.port,
-        ghostMode: false, // Toggle to mirror clicks, reloads etc. (performance)
-        logFileChanges: true,
-        logLevel: 'debug',
+        // ghostMode: false, // Toggle to mirror clicks, reloads etc. (performance)
+        // logFileChanges: true,
+        // logLevel: 'debug',
         open: true        // Toggle to automatically open page when starting.
     });
 });
