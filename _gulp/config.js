@@ -114,6 +114,8 @@ module.exports = {
                 app + '/**/*.{html,markdown,md,yml,json,txt,xml}',
                 app + '/*'
             ],
+            kss: app + '/_kss_styleguide/{,*/}*.{hbs,html,scss,js,md}',
+
             styles:  app + '/_styles/{,*/}*.scss',
             scripts: app + '/_scripts/{,*/}*.js',
 

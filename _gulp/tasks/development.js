@@ -11,6 +11,7 @@ var config            = require('../config');
 // // utils
 var browser           = require('browser-sync');
 var changed           = require('gulp-changed');
+var del               = require('del');
 var concat            = require('gulp-concat');
 var gutil             = require('gulp-util');
 var notify            = require('gulp-notify');
@@ -31,14 +32,14 @@ var messages = {
 var run          = require('gulp-run');
 var shellCommand = 'JEKYLL_ENV=development bundle exec jekyll build' + ' --source=' + config.development.jekyll.src + ' --destination=' + config.development.jekyll.dest + ' --config=' + config.development.jekyll.config;
 
-gulp.task('jekyll-build', function (done) {
+gulp.task('jekyll-build:dev', function (done) {
     browser.notify(messages.jekyllBuild);
     return gulp.src(config.source.path)
         .pipe(run(shellCommand))
         .on('close', done);
 });
 
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', ['jekyll-build:dev'], function () {
     gulp.start('kss:dev');
     browser.reload();
 });
@@ -220,7 +221,7 @@ gulp.task('scripts:dev', ['modernizr:dev'], function(err) {
 // In production, the images are compressed
 // =============================================================================
 
-gulp.task('images', function() {
+gulp.task('images:dev', function() {
     return gulp
         .src(config.development.assets.images.src)
         .pipe(changed(config.development.assets.images.dest)) // Ignore unchanged files
@@ -233,7 +234,7 @@ gulp.task('images', function() {
 
 // Copy src fonts to the devPath folder
 // =============================================================================
-gulp.task('fonts', function() {
+gulp.task('fonts:dev', function() {
     return gulp
         .src(config.development.assets.fonts.src)
         .pipe(changed(config.development.assets.fonts.dest)) // Ignore unchanged files
@@ -246,11 +247,15 @@ gulp.task('fonts', function() {
 
 // Copy src icons to the devPath folder
 // =============================================================================
-gulp.task('icons', function() {
+gulp.task('icons:dev', function() {
     return gulp
         .src(config.development.assets.icons.src)
         .pipe(changed(config.development.assets.icons.dest)) // Ignore unchanged files
-        .pipe(gulp.dest(config.development.assets.icons.dest));
+        .pipe(gulp.dest(config.development.assets.icons.dest))
+        .pipe(notify({
+            title: 'icons:dev succesfully!',
+            message: 'icons:dev task completed.'
+        }));
 });
 
 
@@ -276,12 +281,9 @@ gulp.task('server:development', ['build:development'], function() {
 // Delete the development folder
 // This happens every time a default starts
 // =============================================================================
-var rimraf = require('rimraf');
-
-gulp.task('clean:development', function(done) {
-    rimraf(config.development.path, done);
+gulp.task('clean:dev', function() {
+    return del(config.development.path)
 });
-
 
 // =============================================================================
 // BUILD DEVELOPMENT
@@ -289,16 +291,16 @@ gulp.task('clean:development', function(done) {
 // Build the buildPath folder by running all of the above tasks
 // =============================================================================
 gulp.task('build:development', function(done) {
-    sequence('clean:development', ['jekyll-build'], [
+    sequence('clean:dev', ['jekyll-build:dev'], [
         'styles:dev',
         'coreStyles:dev',
         'scripts:dev',
         'coreScripts:dev',
     ],
     [
-        'images',
-        'fonts',
-        'icons'
+        'images:dev',
+        'fonts:dev',
+        'icons:dev'
     ], done);
 });
 
@@ -308,6 +310,7 @@ gulp.task('build:development', function(done) {
 // =============================================================================
 gulp.task('default', ['build:development', 'server:development'], function() {
     gulp.watch([config.development.watch.jekyll], ['jekyll-rebuild']);
+    gulp.watch([config.development.watch.kss], ['kss:dev', browser.reload]);
 
     gulp.watch([config.development.watch.styles], ['styles:dev', browser.reload]);
     gulp.watch([config.core.watch.styles], ['coreStyles:dev', browser.reload]);
@@ -315,9 +318,9 @@ gulp.task('default', ['build:development', 'server:development'], function() {
     gulp.watch([config.development.watch.scripts], ['scripts:dev', browser.reload]);
     gulp.watch([config.core.watch.scripts], ['coreScripts:dev', browser.reload]);
 
-    gulp.watch([config.development.watch.assets.images], ['images', browser.reload]);
-    gulp.watch([config.development.watch.assets.fonts], ['fonts', browser.reload]);
-    gulp.watch([config.development.watch.assets.icons], ['icons', browser.reload]);
+    gulp.watch([config.development.watch.assets.images], ['images:dev', browser.reload]);
+    gulp.watch([config.development.watch.assets.fonts], ['fonts:dev', browser.reload]);
+    gulp.watch([config.development.watch.assets.icons], ['icons:dev', browser.reload]);
 });
 
 
