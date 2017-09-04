@@ -18,6 +18,8 @@ var notify            = require('gulp-notify');
 var plumber           = require('gulp-plumber');
 var sourcemaps        = require('gulp-sourcemaps');
 var sequence          = require('run-sequence');
+var rename            = require('gulp-rename');
+
 
 
 // =============================================================================
@@ -177,7 +179,8 @@ gulp.task('coreScripts:dev', function() {
         .pipe(babel())
         .pipe(concat(config.core.scripts.mainFile))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.development.scripts.dest))
+        .pipe(gulp.dest(config.core.scripts.app_dest))
+        .pipe(gulp.dest(config.core.scripts.dev_dest))
         .pipe(notify({
             title: 'coreScripts:dev succesfully!',
             message: 'coreScripts:dev task completed.'
@@ -206,12 +209,93 @@ gulp.task('scripts:dev', ['modernizr:dev'], function(err) {
         .pipe(sourcemaps.init())
         .pipe(webpackStream(webpackConfig), webpack)
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.development.scripts.dest))
+        .pipe(gulp.dest(config.development.scripts.app_dest))
+        .pipe(gulp.dest(config.development.scripts.dev_dest))
         .pipe(notify({
             title: 'scripts:dev succesfully!',
             message: 'scripts:dev task completed.'
         }));
 });
+
+
+// =============================================================================
+// SPRITE
+/* https://github.com/jkphl/svg-sprite/blob/master/docs/templating.md */
+// Create a PNG copy of our SVG icon sprite
+// =============================================================================
+
+var svgSprite   = require('gulp-svg-sprite');
+var svg2png     = require('gulp-svg2png');
+
+var spriteConfig = {
+    shape: {
+        spacing: {
+            padding: 1 // give each sprite more1 1px space
+        }
+    },
+    mode: {
+        css: {
+            variables: { // Add new variables for template.css
+                replaceSvgWithPng: function() {
+                    return function(sprite, render) {
+                        return render(sprite).split('.svg').join('.png');
+                    }
+                }
+            },
+            sprite: 'sprite',  // Change generated name of the file
+            render: {
+                css: {
+                    template: config.development.assets.sprites.create
+                }
+            }
+        }
+    }
+};
+
+gulp.task('beginSpriteClean:dev', function() {
+  return del(['./app/assets/sprites/css']);
+});
+
+
+gulp.task('createSprite:dev', ['beginSpriteClean:dev'], function() {
+  return gulp
+    .src(config.development.assets.sprites.src)
+    .pipe(svgSprite(spriteConfig))
+    .pipe(gulp.dest(config.development.assets.sprites.dest));
+});
+
+
+gulp.task('createPngCopy:dev', ['createSprite:dev'], function() {
+  return gulp.src(config.development.assets.sprites.dest + '/css/*.svg')
+    .pipe(svg2png())
+    .pipe(gulp.dest(config.development.assets.sprites.dest + '/css'));
+});
+
+
+gulp.task('copySpriteGraphic:dev', ['createPngCopy:dev'], function() {
+  return gulp
+    .src(config.development.assets.sprites.dest + '/css/*.{svg,png}')
+    .pipe(gulp.dest(config.development.assets.sprites.copy_visuals_dest));
+});
+
+gulp.task('copySpriteSass:dev',['createSprite:dev'], function() {
+  return gulp
+    .src(config.development.assets.sprites.dest + '/css/*.css')
+    .pipe(rename('_sprite.scss'))
+    .pipe(gulp.dest(config.development.assets.sprites.copy_css_dest))
+    .pipe(notify({
+        title: 'sprites:dev succesfully!',
+        message: 'sprites:dev task completed.'
+    }));
+});
+
+
+gulp.task('endSpriteClean:dev', ['copySpriteGraphic:dev', 'copySpriteSass:dev'], function() {
+    return del(config.development.assets.sprites.dest + '/css');
+});
+
+gulp.task('sprites:dev', ['beginSpriteClean:dev', 'createSprite:dev', 'copySpriteSass:dev', 'copySpriteGraphic:dev', 'endSpriteClean:dev']);
+
 
 // =============================================================================
 // RESPONSIVE
@@ -295,7 +379,7 @@ gulp.task('icons:dev', function() {
 // =============================================================================
 // Start a dyancmic server with LiveReload to proxy the site in
 // =============================================================================
-gulp.task('server:development', ['build:development'], function() {
+gulp.task('server:dev', ['build:development'], function() {
     browser.init({
         server: config.development.browsersync.baseDir,
         proxy: config.development.browsersync.proxy,
@@ -331,6 +415,7 @@ gulp.task('build:development', function(done) {
         'coreScripts:dev',
     ],
     [
+        'sprites:dev',
         'images:dev',
         'fonts:dev',
         'icons:dev'
@@ -341,7 +426,7 @@ gulp.task('build:development', function(done) {
 // =============================================================================
 // Build the devFolder, run the server, and watch for file changes
 // =============================================================================
-gulp.task('default', ['build:development', 'server:development'], function() {
+gulp.task('default', ['build:development', 'server:dev'], function() {
     gulp.watch([config.development.watch.jekyll], ['jekyll-rebuild']);
     gulp.watch([config.development.watch.kss], ['kss:dev', browser.reload]);
 
@@ -352,6 +437,7 @@ gulp.task('default', ['build:development', 'server:development'], function() {
     gulp.watch([config.core.watch.scripts], ['coreScripts:dev', browser.reload]);
 
     gulp.watch([config.development.watch.assets.images], ['images:dev', browser.reload]);
+    gulp.watch([config.development.watch.assets.sprites], ['sprites:dev', browser.reload]);
     gulp.watch([config.development.watch.assets.fonts], ['fonts:dev', browser.reload]);
     gulp.watch([config.development.watch.assets.icons], ['icons:dev', browser.reload]);
 });

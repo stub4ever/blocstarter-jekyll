@@ -36,7 +36,8 @@ module.exports = {
         scripts: {
             src: core + '/scripts/**/*.js',
             mainFile: 'core.js',
-            dest: development + '/js/'
+            app_dest: app + '/js/',
+            dev_dest: development + '/js/'
         },
 
         watch: {
@@ -69,7 +70,8 @@ module.exports = {
         scripts: {
             src: app +'/_scripts/{,*/}*.js',
             mainFile: 'app.js',
-            dest: development + '/js/'
+            app_dest: app + '/js/',
+            dev_dest: development + '/js/'
         },
 
         modernizr: {
@@ -173,6 +175,14 @@ module.exports = {
         },
 
         assets: {
+            sprites: {
+                create: app + '/assets/sprites/template.css',
+                src:  app + '/assets/sprites//**/*.svg',
+                dest: app + '/assets/sprites',
+
+                copy_css_dest: core + '/styles/3-generic',
+                copy_visuals_dest: development + '/assets/sprites'
+            },
 
             images: {
                 src:  app + '/assets/images/{,*/}*.{jpg,jpeg,png,gif}',
@@ -215,6 +225,7 @@ module.exports = {
             scripts: app + '/_scripts/{,*/}*.js',
 
             assets: {
+                sprites: app + '/assets/sprites/{,*/}*',
                 images: app + '/assets/images/{,*/}*',
                 fonts: app + '/assets/fonts/{,*/}*',
                 icons: app + '/assets/icons/{,*/}*'
