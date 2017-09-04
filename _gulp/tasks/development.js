@@ -225,7 +225,11 @@ gulp.task('images:dev', function() {
     return gulp
         .src(config.development.assets.images.src)
         .pipe(changed(config.development.assets.images.dest)) // Ignore unchanged files
-        .pipe(gulp.dest(config.development.assets.images.dest));
+        .pipe(gulp.dest(config.development.assets.images.dest))
+        .pipe(notify({
+            title: 'images:dev succesfully!',
+            message: 'images:dev task completed.'
+        }));
 });
 
 
@@ -238,7 +242,11 @@ gulp.task('fonts:dev', function() {
     return gulp
         .src(config.development.assets.fonts.src)
         .pipe(changed(config.development.assets.fonts.dest)) // Ignore unchanged files
-        .pipe(gulp.dest(config.development.assets.fonts.dest));
+        .pipe(gulp.dest(config.development.assets.fonts.dest))
+        .pipe(notify({
+            title: 'fonts:dev succesfully!',
+            message: 'fonts:dev task completed.'
+        }));
 });
 
 
