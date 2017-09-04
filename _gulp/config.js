@@ -76,6 +76,101 @@ module.exports = {
             dest: app + '/_scripts/libs'
         },
 
+        responsive: {
+            src: app + '/assets/images/responsive/{,*/}*.{jpg,png}',
+            files: {
+                // Resize all JPG images to three different sizes: 200, 500, and 630 pixels
+                '*.jpg': [{
+                    width: 640,
+                    rename: {
+                        suffix: '-small',
+                        extname: '.jpg',
+                    },
+                },
+                {
+                    width: 640 * 2,
+                    rename: {
+                        suffix: '-small@2x',
+                        extname: '.jpg',
+                    },
+                },
+                {
+                    width: 1280,
+                    rename: {
+                        suffix: '-medium',
+                        extname: '.jpg',
+                    },
+                },
+                {
+                    width: 1280 * 2,
+                    rename: {
+                        suffix: '-medium@2x',
+                        extname: '.jpg',
+                    },
+                },
+                {
+                    width: 1400,
+                    rename: {
+                        suffix: '-large',
+                        extname: '.jpg',
+                    },
+                },
+                {
+                    width: 1400 * 2,
+                    rename: {
+                        suffix: '-large@2x',
+                        extname: '.jpg',
+                    },
+                },
+                {
+                    width: 640,
+                    rename: {
+                        suffix: '-small',
+                        extname: '.webp',
+                    },
+                },
+                {
+                    width: 640 * 2,
+                    rename: {
+                        suffix: '-small@2x',
+                        extname: '.webp',
+                    },
+                },
+                {
+                    width: 1280,
+                    rename: {
+                        suffix: '-medium',
+                        extname: '.webp',
+                    },
+                },
+                {
+                    width: 1280 * 2,
+                    rename: {
+                        suffix: '-medium@2x',
+                        extname: '.webp',
+                    },
+                },
+                {
+                    width: 1400,
+                    rename: {
+                        suffix: '-large',
+                        extname: '.webp',
+                    },
+                },
+                {
+                    width: 1400 * 2,
+                    rename: {
+                        suffix: '-large@2x',
+                        extname: '.webp',
+                    },
+                },
+                // {
+                //     // Compress, strip metadata, and rename original image
+                //     rename: { suffix: ''},
+                // }
+                ],
+            }
+        },
 
         assets: {
 

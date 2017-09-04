@@ -213,6 +213,31 @@ gulp.task('scripts:dev', ['modernizr:dev'], function(err) {
         }));
 });
 
+// =============================================================================
+// RESPONSIVE
+
+// Resize one source image to one or more output images in different resolutions
+// https://github.com/mahnunchik/gulp-responsive
+// =============================================================================
+var responsive = require('gulp-responsive');
+
+gulp.task('responsive:dev', function () {
+  return gulp
+    .src(config.development.responsive.src)
+    .pipe(responsive(config.development.responsive.files, {
+        // Global configuration for all images
+        // The output quality for JPEG, WebP and TIFF output formats
+        quality: 80,
+        // Use progressive (interlace) scan for JPEG and PNG output
+        progressive: true,
+        // Strip all metadata
+        withMetadata: false,
+        // Do not emit the error when image is enlarged.
+        // errorOnEnlargement: false,
+    }))
+    .pipe(gulp.dest(config.development.assets.images.dest))
+});
+
 
 // =============================================================================
 // IMAGES
@@ -221,7 +246,7 @@ gulp.task('scripts:dev', ['modernizr:dev'], function(err) {
 // In production, the images are compressed
 // =============================================================================
 
-gulp.task('images:dev', function() {
+gulp.task('images:dev', ['responsive:dev'], function() {
     return gulp
         .src(config.development.assets.images.src)
         .pipe(changed(config.development.assets.images.dest)) // Ignore unchanged files
