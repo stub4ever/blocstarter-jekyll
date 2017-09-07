@@ -1,7 +1,8 @@
 {
   "css/app.css": "css/app-d41d8cd98f.css",
-  "css/core.css": "css/core-550ad82397.css",
-  "css/main.css": "css/main-095b519118.css",
-  "js/app.js": "js/app-3309c08f91.js",
-  "js/core.js": "js/core-d947cafd78.js"
+  "css/core.css": "css/core-c648c5e443.css",
+  "js/app.js": "js/app-80c1c828ab.js",
+  "js/core.js": "js/core-cab8b4d453.js",
+  "js/lib.js": "js/lib-80829dfc48.js",
+  "js/vendor.js": "js/vendor-2de9c416e6.js"
 }

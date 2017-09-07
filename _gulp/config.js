@@ -30,7 +30,10 @@ module.exports = {
         styles: {
             src: core + '/styles/core.scss',
             app_dest: app + '/css/',
-            dev_dest: development + '/css/'
+            dev_dest: development + '/css/',
+
+            critical: core + '/styles/critical.scss',
+            critical_dest: app + '/_includes'
         },
 
         scripts: {
@@ -41,8 +44,14 @@ module.exports = {
         },
 
         watch: {
-            styles: core + '/styles/{,*/}*.scss',
-            scripts: core + '/scripts/{,*/}*.js'
+            styles: [core + '/styles/{,*/}*.scss'],
+            critical: [
+                core + '/styles/critical.scss',
+                core + '/styles/1-settings/{,*/}*.scss',
+                core + '/styles/4-base/{,*/}*.scss',
+                core + '/styles/3-generic/{,*/}*.scss',
+            ],
+            scripts: core + '/scripts/{,*/}*.js',
         }
     },
 
@@ -245,7 +254,7 @@ module.exports = {
 
         optimize: {
             html: {
-                src: development + '/*.html',
+                src: [development + '/{,*/}*.html', '!build/development/styleguide/*.html'],
                 dest: production,
                 options: {
                     collapseWhitespace: true,
@@ -256,10 +265,19 @@ module.exports = {
             css: {
                 src: development + '/css/*.css',
                 dest: production + '/css/',
-                options: {}
+                options: {},
+
+                base64: {
+                    options: {
+                        baseDir: development,
+                        extensions: ['png'],
+                        maxImageSize: 20 * 1024, // bytes
+                        debug: false
+                    }
+                },
             },
 
-            scripts: {
+            js: {
                 src: development + '/js/*.js',
                 dest: production + '/js/',
                 options: {}
@@ -296,6 +314,11 @@ module.exports = {
             icons: {
                 src: development + '/assets/icons/{,*/}*',
                 dest: production + '/assets/icons/'
+            },
+
+            sprites: {
+                src: development + '/assets/sprites/{,*/}*',
+                dest: production + '/assets/sprites/'
             }
         },
 

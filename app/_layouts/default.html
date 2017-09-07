@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head-script.html %}
+    {% include head-script.html %}
+    <!--[if lt IE 10]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-  <body>
-    <a class="accessibility skip-to-main" href="#main">Skip to main content</a>
 
-    {% include header.html %}
+    <body>
+        <a class="accessibility skip-to-main" href="#main">Skip to main content</a>
 
-    <div class="page">
-        {{ content }}
-    </div>
+        {% include header.html %}
 
-    {% include footer.html %}
+        <div class="page">
+            {{ content }}
+        </div>
 
-    {% include body-script.html %}
+        {% include footer.html %}
 
-  </body>
+        {% include body-script.html %}
+
+    </body>
 
 </html>
 

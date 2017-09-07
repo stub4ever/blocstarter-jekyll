@@ -1,23 +1,3 @@
-# TODO 
-[] Maak bij source config dest variable aan for styles + scripts aan
-[] zet styles dev_dest terug naar dest
-[] config vanaf asssets 
-[] Zet in de body en header de path van de assets juist
-[] Config production
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html
 
 # Jekyll + netlify CMS

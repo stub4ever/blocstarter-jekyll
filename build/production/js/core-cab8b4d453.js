@@ -1,0 +1,1 @@
+"use strict";!function(t){var o=function t(o){return new t.init(o)};o.init=function(t){this.node=t||"",this.getNode()},o.prototype={getNode:function(){},newChild:function(){}},o.init.prototype=o.prototype,t.Blocstart=o}(window);var modal=Blocstart(".js-modal");

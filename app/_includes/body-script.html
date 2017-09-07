@@ -13,5 +13,14 @@
 
 
 {% include path.html %}
+<!-- Fallback if fail loading CSS files in -->
+<noscript>
+    <link href='{{ path }}/css/core.css' rel='stylesheet' type='text/css'>
+    <link href='{{ path }}/css/app.css' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet' rel='stylesheet' type='text/css'>
+</noscript>
+
+<script src="{{ path }}/js/lib.js"></script>
 <script src="{{ path }}/js/core.js"></script>
 <script src="{{ path }}/js/app.js"></script>

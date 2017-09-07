@@ -11,12 +11,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="cleartype" content="on">
 
+
+
+
+
+
 <!-- favicon -->
-<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96" href="http://yourdomain.com">
+<link rel="favicon icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96" href="assets/images/favicon.png">
 <!-- end favicon -->
 
 <!-- site icons -->
-<link rel="apple-touch-icon" href="http://yourdomain.com.png">
+<link href="assets/images/apple-touch-icon-x180.png" rel="apple-touch-icon"  sizes="180x180">
+<link href="assets/images/apple-touch-icon-x32.png" rel="icon"  sizes="32x32">
+<!-- end site icons -->
 
 <title>Welcome to Jekyll!</title>
 <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
@@ -39,28 +46,30 @@
 <meta name='twitter:description' content='NEWARK – The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.'>
 <meta name='twitter:image' content='http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg'>
 
-<!-- favicon -->
-<link rel="favicon icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96" href="http://yourdomain.com">
-<!-- end favicon -->
+<script>
+    !function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function l(){d.addEventListener&&d.removeEventListener("load",l),d.media=r||"all"}var a,i=e.document,d=i.createElement("link");if(n)a=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;a=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){a.parentNode.insertBefore(d,n?a:a.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",l),d.onloadcssdefined=f,f(l),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(t){}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){e.clearInterval(n)})}}}(this);
 
-<!-- site icons -->
-<link href="http://yourdomain.com/apple-touch-icon-x180.png" rel="apple-touch-icon"  sizes="180x180">
-<link href="http://yourdomain.com/apple-touch-icon-x32.png" rel="icon"  sizes="32x32">
-<!-- end site icons -->
+    // Custom CSS
+    loadCSS('/css/app-d41d8cd98f.css');
+    loadCSS('/css/core-c648c5e443.css');
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet">
+    // Font
+    loadCSS('https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet');
+  </script>
 
-<!-- Custom CSS -->
+<!-- Inline critical CSS. -->
+<style>@font-face{font-family:"";src:url(/assets/fonts/.eot?#iefix);src:url(/assets/fonts/.eot?#iefix) format("eot"),url(/assets/fonts/.woff2) format("woff2"),url(/assets/fonts/.woff) format("woff"),url(/assets/fonts/.ttf) format("truetype"),url(/assets/fonts/) format("svg");font-weight:300;font-style:normal}</style>
 
+<!-- scripts that needs to run soon as possible -->
+<script src="/js/vendor-2de9c416e6.js"></script>
 
-
-
-<link rel="stylesheet" href="/css/core-550ad82397.css">
-<link rel="stylesheet" href="/css/app-d41d8cd98f.css">
 
 <link rel="canonical" href="/jekyll/update/2015/08/26/welcome-to-jekyll.html">
 <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="feed.xml" />
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
 
 
@@ -171,8 +180,17 @@
 
 
 
-<script src="/js/core-d947cafd78.js"></script>
-<script src="/js/app-3309c08f91.js"></script>
+<!-- Fallback if fail loading CSS files in -->
+<noscript>
+    <link href='/css/core-c648c5e443.css' rel='stylesheet' type='text/css'>
+    <link href='/css/app-d41d8cd98f.css' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet' rel='stylesheet' type='text/css'>
+</noscript>
+
+<script src="/js/lib-80829dfc48.js"></script>
+<script src="/js/core-cab8b4d453.js"></script>
+<script src="/js/app-80c1c828ab.js"></script>
 
 
   </body>

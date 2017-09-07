@@ -134,7 +134,28 @@ gulp.task('styles:dev', function() {
         }));
 });
 
+// =============================================================================
+// Critical CSS
 
+// Processes critical CSS, to be included in head.html.
+// https://gomakethings.com/inlining-critical-css-for-better-web-performance/
+// =============================================================================
+var csso    = require('gulp-csso');
+
+gulp.task('styles:critical:dev', function() {
+    return gulp
+        .src(config.core.styles.critical)
+        .pipe(sass()).on('error', notify.onError(function (error) {
+            return "Problem file : " + error.message;
+        }))
+        .pipe(postcss(processors))
+        .pipe(csso(config.production.optimize.css.options))
+        .pipe(gulp.dest(config.core.styles.critical_dest))
+        .pipe(notify({
+            title: 'styles:critical:dev succesfully!',
+            message: 'styles:critical:dev task completed.'
+        }));
+});
 
 // =============================================================================
 // MODERNISZR
@@ -409,10 +430,11 @@ gulp.task('clean:dev', function() {
 // =============================================================================
 gulp.task('build:development', function(done) {
     sequence('clean:dev', ['jekyll-build:dev'], [
+        'styles:critical:dev',
         'styles:dev',
         'coreStyles:dev',
         'scripts:dev',
-        'coreScripts:dev',
+        'coreScripts:dev'
     ],
     [
         'sprites:dev',
@@ -432,6 +454,7 @@ gulp.task('default', ['build:development', 'server:dev'], function() {
 
     gulp.watch([config.development.watch.styles], ['styles:dev', browser.reload]);
     gulp.watch([config.core.watch.styles], ['coreStyles:dev', browser.reload]);
+    gulp.watch([config.core.watch.critical], ['styles:critical:dev', browser.reload]);
 
     gulp.watch([config.development.watch.scripts], ['scripts:dev', browser.reload]);
     gulp.watch([config.core.watch.scripts], ['coreScripts:dev', browser.reload]);
