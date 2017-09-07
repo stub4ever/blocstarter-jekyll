@@ -1,4 +1,5 @@
 http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html
+Fix error => https://github.com/akoenig/gulp-svg2png/issues/29
 
 # Jekyll + netlify CMS
 

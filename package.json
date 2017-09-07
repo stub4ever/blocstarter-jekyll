@@ -4,7 +4,9 @@
   "description": "A repo to be used as a sub module/tree for adding the Materialize framework along with Gulp to any project",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "development_view": "gulp",
+    "production_view": "gulp production",
+    "production_without_view": "gulp deploy"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -12,9 +14,8 @@
     "babel-core": "^6.24.0",
     "babel-loader": "^7.1.1",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.11.1",
-    "critical": "^0.9.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -38,7 +39,6 @@
     "gulp-rsync": "0.0.7",
     "gulp-run": "^1.7.1",
     "gulp-sass": "^2.2.0",
-    "gulp-shell": "^0.6.3",
     "gulp-size": "^2.1.0",
     "gulp-sizereport": "^1.2.0",
     "gulp-sourcemaps": "^1.6.0",
@@ -46,6 +46,7 @@
     "gulp-svg2png": "^2.0.2",
     "gulp-uglify": "^2.1.2",
     "gulp-uncss": "^1.0.6",
+    "gulp-util": "^3.0.8",
     "kss": "^3.0.0-beta.18",
     "path": "^0.12.7",
     "require-dir": "^0.3.1",
