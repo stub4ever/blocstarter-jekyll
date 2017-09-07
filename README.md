@@ -1,6 +1,74 @@
 http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html
 Fix error => https://github.com/akoenig/gulp-svg2png/issues/29
 
+
+## System Preparation
+
+To use this starter project, you'll need the following things installed on your machine.
+
+1. [NodeJS](http://nodejs.org) - use the installer.
+2. [GulpJS](https://github.com/gulpjs/gulp) - `$ npm install -g gulp` (mac users may need sudo)
+3. [Webpack](https://webpack.github.io/) - `$ npm install -g webpack` 
+
+
+## Architecture
+
+    name-project/
+    ├── _core/
+    │    ├── scripts/core.js
+    │    └── styles/core.scss   
+    │
+    └── app/
+    │    ├── assets/
+    │    │      └── images
+    │    │      └── fonts
+    │    │      └── icons
+    │    │
+    │    ├── scripts/
+    │    │      └── app.js
+    │    │      └── vendor.js
+    │    │      └── lib.js
+    │    │
+    │    └── styles/styles.scss     
+    │  
+    └── build/
+        │
+        ├── development/
+        │     ├── assets/
+        │     │      └── images
+        │     │      └── fonts
+        │     │      └── icons
+        │     │
+        │     ├── css/
+        │     │      └── core.css
+        │     │      └── styles.css
+        │     │
+        │     └── js/
+        │            └── core.js
+        │            └── app.js
+        │            └── vendor.js
+        │            └── lib.js
+        │    
+        └── production/
+              ├── assets/
+              │      └── images
+              │      └── fonts
+              │      └── icons
+              │
+              ├── css/
+              │      └── core.css
+              │      └── styles.css
+              │
+              └── js/
+                     └── core.js
+                     └── app.js
+                     └── vendor.js
+                     └── lib.js
+ 
+
+ 
+
+
 # Jekyll + netlify CMS
 
 This is the basic Jekyll starter site, with netlify CMS integrated.

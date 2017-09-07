@@ -54,7 +54,6 @@ gulp.task('jekyll-rebuild', ['jekyll-build:dev'], function () {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 // =============================================================================
-var shell   = require('gulp-shell');
 
 // if OS is Mac.
 if (process.platform === 'darwin') { var open = 'open'; }
@@ -71,7 +70,6 @@ gulp.task('kss:dev', function (done) {
         .pipe(run('kss --config kss-config.json'))
         .on('close', done);
 });
-
 
 // =============================================================================
 // SASS
