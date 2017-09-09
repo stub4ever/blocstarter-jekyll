@@ -55,8 +55,6 @@ gulp.task('jekyll-rebuild', ['jekyll-build:dev'], function () {
 // In production, the CSS is compressed
 // =============================================================================
 
-var shell   = require('gulp-shell');
-
 // if OS is Mac.
 if (process.platform === 'darwin') { var open = 'open'; }
 
@@ -66,19 +64,12 @@ else if (process.platform === 'linux') { var open = 'xdg-open'; }
 // if OS is Windows.
 else if (process.platform === 'win32') { var open = 'start'; }
 
-gulp.task('kss:dev', shell.task([
 
-    'kss --config kss-config.json'
-
-]));
-
-gulp.task('kss:show', shell.task([
-
-    'kss --config kss-config.json',
-    open + ' kss_styleguide/styleguide/index.html'
-
-]));
-
+gulp.task('kss:dev', function (done) {
+    return gulp.src(config.source.path)
+        .pipe(run('kss --config kss-config.json'))
+        .on('close', done);
+});
 
 // =============================================================================
 // SASS
