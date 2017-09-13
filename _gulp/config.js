@@ -7,6 +7,9 @@ const app               = 'app';
 const development       = 'build/development';
 const production        = 'build/production';
 
+// Deployment
+const deploy            = '../../deployments/_sigsens';
+
 // =============================================================================
 // Server URL
 // =============================================================================
@@ -350,5 +353,10 @@ module.exports = {
             proxy: productionServerURL,
             port: productionPort
         },
+    },
+
+    // CONFIG PRODUCTION
+    deploy: {
+        path: deploy,
     }
 };

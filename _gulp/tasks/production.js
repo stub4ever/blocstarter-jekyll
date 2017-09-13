@@ -313,8 +313,5 @@ gulp.task('build:prod', function(done) {
 // =============================================================================
 gulp.task('production', ['build:prod', 'server:prod']);
 
-gulp.task('deploy', ['build:prod']);
-
-
 
 
