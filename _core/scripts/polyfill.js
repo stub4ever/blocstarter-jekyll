@@ -31,3 +31,6 @@ function windowResize() {
         if (isNaN(SCREENSIZE)) SCREENSIZE = 0;
     }
 };
+
+
+console.log('Polyfill');
