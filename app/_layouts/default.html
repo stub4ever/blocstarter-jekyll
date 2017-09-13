@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-    {% include head-script.html %}
-    <!--[if lt IE 10]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  {% include head-script.html %}
+
+  <body>
+    <input id="panel-menu-trigger" type="checkbox" class="panel__target">
+
+    <a class="accessibility skip-to-main" href="#main">Skip to main content</a>
+
+    {% include components/panel.html %}
+    {% include components/panel-menu.html %}
 
 
-    <body>
-        <a class="accessibility skip-to-main" href="#main">Skip to main content</a>
+    <div class="page">
+        {{ content }}
+    </div>
 
-        {% include header.html %}
+    {% include body-script.html %}
 
-        <div class="page">
-            {{ content }}
-        </div>
-
-        {% include footer.html %}
-
-        {% include body-script.html %}
-
-    </body>
+  </body>
 
 </html>
 

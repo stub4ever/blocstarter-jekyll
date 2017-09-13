@@ -1,0 +1,36 @@
+'use strict';
+
+// add semicon here avoid if other code doesnt finish the semicolons out properly
+// it will still run fine
+;(function (global) {
+
+	var Blocstart = function Blocstart(node) {
+		// Return a new object then use a function constructor to generate the property
+		return new Blocstart.init(node); // this will return new object with an method init
+	};
+
+	Blocstart.init = function (node) {
+		this.node = node || '';
+
+		this.getNode();
+	};
+
+	//  This is an object Literal
+	// prototype holds method (to save memory space) to THIS object that is been created
+	Blocstart.prototype = {
+
+		getNode: function getNode() {
+			// document.querySelector();
+		},
+
+		newChild: function newChild() {}
+
+		// return = {}
+
+
+		// all of those objects created to point all methods on this prototype chain
+	};Blocstart.init.prototype = Blocstart.prototype;
+
+	global.Blocstart = Blocstart;
+})(window);
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2NzdGFydC5qcyJdLCJuYW1lcyI6WyJnbG9iYWwiLCJCbG9jc3RhcnQiLCJub2RlIiwiaW5pdCIsImdldE5vZGUiLCJwcm90b3R5cGUiLCJuZXdDaGlsZCIsIndpbmRvdyJdLCJtYXBwaW5ncyI6Ijs7QUFBQTtBQUNBO0FBQ0EsQ0FBRSxXQUFTQSxNQUFULEVBQWdCOztBQUVqQixLQUFJQyxZQUFZLFNBQVpBLFNBQVksQ0FBU0MsSUFBVCxFQUFlO0FBQzlCO0FBQ0EsU0FBTyxJQUFJRCxVQUFVRSxJQUFkLENBQW1CRCxJQUFuQixDQUFQLENBRjhCLENBRUc7QUFDakMsRUFIRDs7QUFLQUQsV0FBVUUsSUFBVixHQUFpQixVQUFTRCxJQUFULEVBQWU7QUFDL0IsT0FBS0EsSUFBTCxHQUFZQSxRQUFRLEVBQXBCOztBQUVBLE9BQUtFLE9BQUw7QUFDQSxFQUpEOztBQU9BO0FBQ0E7QUFDQUgsV0FBVUksU0FBVixHQUFzQjs7QUFFckJELFdBQVMsbUJBQVc7QUFDbkI7QUFDQSxHQUpvQjs7QUFNckJFLFlBQVUsb0JBQVcsQ0FFcEI7O0FBR0Q7OztBQUdEO0FBZHNCLEVBQXRCLENBZUFMLFVBQVVFLElBQVYsQ0FBZUUsU0FBZixHQUEyQkosVUFBVUksU0FBckM7O0FBR0FMLFFBQU9DLFNBQVAsR0FBbUJBLFNBQW5CO0FBR0EsQ0FyQ0MsRUFxQ0FNLE1BckNBLENBQUQiLCJmaWxlIjoiYmxvY3N0YXJ0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gYWRkIHNlbWljb24gaGVyZSBhdm9pZCBpZiBvdGhlciBjb2RlIGRvZXNudCBmaW5pc2ggdGhlIHNlbWljb2xvbnMgb3V0IHByb3Blcmx5XG4vLyBpdCB3aWxsIHN0aWxsIHJ1biBmaW5lXG47KGZ1bmN0aW9uKGdsb2JhbCl7XG5cblx0dmFyIEJsb2NzdGFydCA9IGZ1bmN0aW9uKG5vZGUpIHtcblx0XHQvLyBSZXR1cm4gYSBuZXcgb2JqZWN0IHRoZW4gdXNlIGEgZnVuY3Rpb24gY29uc3RydWN0b3IgdG8gZ2VuZXJhdGUgdGhlIHByb3BlcnR5XG5cdFx0cmV0dXJuIG5ldyBCbG9jc3RhcnQuaW5pdChub2RlKTsgLy8gdGhpcyB3aWxsIHJldHVybiBuZXcgb2JqZWN0IHdpdGggYW4gbWV0aG9kIGluaXRcblx0fVxuXG5cdEJsb2NzdGFydC5pbml0ID0gZnVuY3Rpb24obm9kZSkge1xuXHRcdHRoaXMubm9kZSA9IG5vZGUgfHwgJyc7XG5cblx0XHR0aGlzLmdldE5vZGUoKTtcblx0fVxuXG5cblx0Ly8gIFRoaXMgaXMgYW4gb2JqZWN0IExpdGVyYWxcblx0Ly8gcHJvdG90eXBlIGhvbGRzIG1ldGhvZCAodG8gc2F2ZSBtZW1vcnkgc3BhY2UpIHRvIFRISVMgb2JqZWN0IHRoYXQgaXMgYmVlbiBjcmVhdGVkXG5cdEJsb2NzdGFydC5wcm90b3R5cGUgPSB7XG5cblx0XHRnZXROb2RlOiBmdW5jdGlvbigpIHtcblx0XHRcdC8vIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoKTtcblx0XHR9LFxuXG5cdFx0bmV3Q2hpbGQ6IGZ1bmN0aW9uKCkge1xuXG5cdFx0fVxuXG5cblx0XHQvLyByZXR1cm4gPSB7fVxuXHR9XG5cblx0Ly8gYWxsIG9mIHRob3NlIG9iamVjdHMgY3JlYXRlZCB0byBwb2ludCBhbGwgbWV0aG9kcyBvbiB0aGlzIHByb3RvdHlwZSBjaGFpblxuXHRCbG9jc3RhcnQuaW5pdC5wcm90b3R5cGUgPSBCbG9jc3RhcnQucHJvdG90eXBlO1xuXG5cblx0Z2xvYmFsLkJsb2NzdGFydCA9IEJsb2NzdGFydDtcblxuXG59KHdpbmRvdykpO1xuIl19

@@ -58,16 +58,11 @@ gulp.task('optimize:html:prod', function() {
 // This task remove comments, output the size of the file and copy them to the production assets folder.
 // =============================================================================
 var csso    = require('gulp-csso');
-var uncss   = require('gulp-uncss');
 var base64  = require('gulp-base64');
 
 gulp.task('optimize:css:prod', function() {
     return gulp
         .src(config.production.optimize.css.src)
-        .pipe(uncss({
-            html: config.production.optimize.html.src,
-            ignore: ['*:*']
-        }))
         .pipe(base64(config.production.optimize.css.base64.options))
         .pipe(csso(config.production.optimize.css.options))
         .pipe(gulp.dest(config.production.optimize.css.dest))
@@ -264,7 +259,7 @@ gulp.task('server:prod', ['build:prod'], function() {
 var del     = require('del');
 
 gulp.task('clean:prod', function() {
-    return del(config.production.path)
+    return del(config.production.path, {force: true})
 });
 
 
@@ -313,7 +308,7 @@ gulp.task('build:prod', function(done) {
 // =============================================================================
 gulp.task('production', ['build:prod', 'server:prod']);
 
-gulp.task('deploy', ['build:prod']);
+
 
 
 

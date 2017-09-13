@@ -1,22 +1,20 @@
----
-layout: default
----
-
 <!DOCTYPE html>
 <html>
 
   {% include head-script.html %}
 
   <body>
+    <input id="panel-menu-trigger" type="checkbox" class="panel__target">
+
     <a class="accessibility skip-to-main" href="#main">Skip to main content</a>
 
-    {% include header.html %}
+    {% include components/panel.html %}
+    {% include components/panel-menu.html %}
+
 
     <div class="page">
         {{ content }}
     </div>
-
-    {% include footer.html %}
 
     {% include body-script.html %}
 

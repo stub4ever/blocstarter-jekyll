@@ -1,0 +1,48 @@
+// ========================================================
+// HOME ABOUT
+// ========================================================
+
+.home-about .bloc__item {
+    position: relative;
+}
+
+.home-about .line__horizontal {
+    display: none;
+}
+
+
+// ========================================================
+// TABLET
+// ========================================================
+
+@include respond-min-width($view-tablet){
+
+    .home-about .line__horizontal {
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        margin-bottom: 100px;
+    }
+
+    .home-about .line__horizontal--flush\@tablet {
+        &:before {
+            left: 0;
+        }
+    }
+} // END MEDIA
+
+
+// ========================================================
+// DESKTOP
+// ========================================================
+
+@include respond-min-width($view-desktop){
+
+    .home-about .line__horizontal--flush\@tablet {
+        &:before {
+            left: -$gutter;
+        }
+    }
+
+} // END MEDIA

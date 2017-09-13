@@ -1,25 +1,87 @@
 ---
-layout: default
+layout: page
+description: Home
 ---
 
 <!-- Section -->
-<section class="section" id="main" tabindex="-1">
-    <div class="section__inner">
-        <h1>Index</h1>
+<section class="section home-hero" id="main" tabindex="-1">
+    <div class="section__inner  section__inner--medium@desktop">
 
-        <ul class="post-list">
-            {% for post in site.posts %}
-            <li>
-                <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <div class="bloc">
 
-                <h2>
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h2>
-            </li>
-            {% endfor %}
-        </ul>
+            <div class="bloc__item  w1/2@tablet">
+                <div class="col">
+                    <div class="col__item box  box--medium@desktop">
 
+                        <div class="image-background" style="background-image: url()"></div>
+
+                        <h1 class="heading-jumbo">Fuelled <br>
+                        by creativity <br>
+                        & experiences
+                        </h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <!-- /Section -->
+
+<!-- Section -->
+<div class="section  home-about">
+    <div class="section__inner  section__inner--medium@desktop">
+
+        <div class="bloc">
+            <div class="bloc__item  w1/2@tablet">
+                <div class="col">
+                    <div class="col__item  box  box--medium@desktop">
+                        <article class="heading-display">
+                            <h1 class="accessibility">About</h1>
+                            <h2 class="heading-title">About</h2>
+                            <p>I’m Van Quoc Bui a Dutch raised in Netherland & currently living in Amsterdam</p>
+                            <p>I had the privilege of working with companies such as Microsoft, Nestle & many more. test 123</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+<!--             <div class="bloc__item  bloc__item--pull-top@tablet  w1/2@tablet">
+                <span class="line__horizontal  line__horizontal--flush@tablet"></span>
+                <div class="col  col--column  col--row@desktop">
+                    <div class="col__item  box  box--medium@desktop">
+
+                        <div class="author-profile">
+                            <div class="author-profile__avatar">
+                                <img class=""src="http://placehold.it/400x400" alt="">
+                            </div>
+
+                            <nav class="author-profile__navigation">
+                                <a href="">Read Bio</a>
+
+                                <ul class="list-bare">
+                                    <li>
+                                        <a href="">Twitter</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Linkedin</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Dribble</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Instagram</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Github</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- end section -->
 

@@ -1,0 +1,1 @@
+"use strict";!function(t){var n=function t(n){return new t.init(n)};n.init=function(t){this.node=t||"",this.getNode()},n.prototype={getNode:function(){},newChild:function(){}},n.init.prototype=n.prototype,t.Blocstart=n}(window);

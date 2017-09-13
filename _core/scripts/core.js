@@ -1,2 +1,2 @@
-var modal = Blocstart('.js-modal');
+// var modal = Blocstart('.js-modal');
 

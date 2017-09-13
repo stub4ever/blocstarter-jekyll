@@ -1,8 +1,12 @@
 {
   "css/app.css": "css/app-d41d8cd98f.css",
-  "css/core.css": "css/core-c648c5e443.css",
+  "css/core.css": "css/core-24990b61ee.css",
+  "css/my10jobs.css": "css/my10jobs-26e22a2c07.css",
   "js/app.js": "js/app-80c1c828ab.js",
-  "js/core.js": "js/core-cab8b4d453.js",
+  "js/blocstart.js": "js/blocstart-727089c7bc.js",
+  "js/core.js": "js/core-8971778a9c.js",
   "js/lib.js": "js/lib-80829dfc48.js",
-  "js/vendor.js": "js/vendor-2de9c416e6.js"
+  "js/my10jobs.js": "js/my10jobs-44bb2288cd.js",
+  "js/polyfill.js": "js/polyfill-366a4e0672.js",
+  "js/vendor.js": "js/vendor-ac0513b5cc.js"
 }

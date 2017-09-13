@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Blocstarter</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet">
+    <!-- End Font -->
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+    <input id="styleguide-menu-toggle" type="checkbox" class="styleguide__menu-target">
+
+    <label for="styleguide-menu-toggle" class="styleguide__menu-trigger">
+        Styleguide
+    </label>
+
+    <nav class="styleguide__menu-nav">
+        <div class="styleguide__section-inner">
+            <ul class="list-bare styleguide__list">
+                <li class="box m-none">
+                    <a class="fw1" href="#settings">1. Settings</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#tools">2. Tools</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#base">3. Base</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#objects">4. Objects</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#components">5. Components</a>
+                </li>
+
+                <li class="box m-none">
+                    <a class="fw1" href="#compositions">6. Compositions</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page">
+        {{ content }}
+    </div>
+
+    <label for="styleguide-menu-toggle" class="styleguide__overlay" tabindex="-1"></label>
+
+
+    <script src="js/core.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

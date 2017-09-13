@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>My 10 Jobs - Ngay Moi Nghe Moi</title>
+
+    <meta name="description" content="In ten days, I want to gain life experience and learn about ten individuals, working low paid jobs in Ho Chi Minh City">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" id="favicon" sizes="16x16 24x24 32x32 48x48 64x64 96x96" href="/favicon-my10jobs.png">
+    <!-- end favicon -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MF4R4FQ');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Facebook -->
+    <meta property="og:title" content="my 10 jobs">
+    <meta property="og:image" content="/assets/images/my10jobs-thumbnail.png">
+    <meta property="og:type" content="my10jobs">
+    <meta property="og:description" content="In ten days, I want to gain life experience and learn about ten individuals, working low paid jobs in Ho Chi Minh City">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@stuboki">
+    <meta name="twitter:title" content="my10jobs">
+    <meta name="twitter:description" content="In ten days, I want to gain life experience and learn about ten individuals, working low paid jobs in Ho Chi Minh City">
+    <meta name="twitter:image" content="/assets/images/my10jobs-thumbnail.png">
+
+    <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+
+  <link href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- End Font -->
+
+    <link rel="stylesheet" href="css/my10jobs.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/vendor.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MF4R4FQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <input id="menu-toggle" type="checkbox" class="menu-nav__target">
+    {% include my10jobs/about-me.html %}
+
+
+
+    <div class="page my10jobs">
+        {{ content }}
+    </div>
+
+    <!-- Video lightbox -->
+    <div class="lightbox js-lightbox-video">
+        <div class="lightbox-bg js-lightbox-close"></div>
+        <div class="lightbox-table">
+            <div class="lightbox-cell">
+                <div class="lightbox-content">
+                    <div class="video-container video">
+                        <iframe id="video-player-preview" src="" frameborder="0"></iframe>
+                    </div>
+                    <button class="js-lightbox-close lightbox-close-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 42 42" enable-background="new 0 0 42 42" xml:space="preserve">
+                <polygon points="1.5,35 7,40.5 21,26.7 35,40.5 40.5,35 26.7,21 40.5,7 35,1.5 21,15.5 7,1.5 1.5,7 15.5,21 "/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Video lightbox -->
+
+    <label for="menu-toggle" class="menu-nav__overlay" tabindex="-1"></label>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/polyfill.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/my10jobs.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

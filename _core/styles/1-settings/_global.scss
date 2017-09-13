@@ -15,7 +15,7 @@
 
 // Width settings of sections of  'section.scss'
 $wrapper-width:     auto;
-$container-width:   75rem; // 1200px
+$container-width:   auto; // 1200px
 
 // View Devices breakpoints
 $view-small:        30rem; // 480px
@@ -26,20 +26,37 @@ $view-desktop:      64rem; // 1024px
 $time-fast: .2s; $time: .4s; $time-slow: .6s;
 
 // Family fonts
-$font-primary: 'Open Sans', sans-serif;
-$font-secondary: 'Hind', sans-serif;
-
+$font-primary: 'Arimo', sans-serif;
+$font-secondary: 'Okomito', sans-serif;
 
 
 
 @font-face {
-    font-family:"";
-    src:url("/assets/fonts/.eot?#iefix");
-    src:url("/assets/fonts/.eot?#iefix") format("eot"),
-        url("/assets/fonts/.woff2") format("woff2"),
-        url("/assets/fonts/.woff") format("woff"),
-        url("/assets/fonts/.ttf") format("truetype"),
-        url("/assets/fonts/") format("svg");
+    font-family:"Okomito";
+    src:url("/assets/fonts/okomito/Okomito-Light.eot?#iefix");
+    src:url("/assets/fonts/okomito/Okomito-Light.eot?#iefix") format("eot"),
+        url("/assets/fonts/okomito/Okomito-Light.woff2") format("woff2"),
+        url("/assets/fonts/okomito/Okomito-Light.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:"Okomito";
+    src:url("/assets/fonts/okomito/Okomito-Regular.eot?#iefix");
+    src:url("/assets/fonts/okomito/Okomito-Regular.eot?#iefix") format("eot"),
+        url("/assets/fonts/okomito/Okomito-Regular.woff2") format("woff2"),
+        url("/assets/fonts/okomito/Okomito-Regular.woff") format("woff");
     font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:"Okomito";
+    src:url("/assets/fonts/okomito/Okomito-Bold.eot?#iefix");
+    src:url("/assets/fonts/okomito/Okomito-Bold.eot?#iefix") format("eot"),
+        url("/assets/fonts/okomito/Okomito-Bold.woff2") format("woff2"),
+        url("/assets/fonts/okomito/Okomito-Bold.woff") format("woff");
+    font-weight: 500;
     font-style: normal;
 }
