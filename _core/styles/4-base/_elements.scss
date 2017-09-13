@@ -2,8 +2,6 @@
 // ELEMENTS
 // ========================================================
 
-
-
 html,
 button,
 datalist,
@@ -102,6 +100,17 @@ table {
 fieldset {
     min-width: 0;
     border: 0;
+}
+
+
+// Hidden default input checkbox & radio.
+input[type='checkbox'],
+input[type='radio'] {
+    position: fixed;
+    bottom: 100%;
+    right: 100%;
+    opacity: 0;
+    visibility: hidden;
 }
 
 // Remove trailing margins from nested lists.
