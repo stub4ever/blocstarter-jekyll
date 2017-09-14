@@ -11,20 +11,24 @@ var path              = require('path');
 
 // Util
 var browser           = require('browser-sync');
+var concat            = require('gulp-concat');
+var del               = require('del');
 var notify            = require('gulp-notify');
-var sequence          = require('run-sequence');
+var rename            = require('gulp-rename');
+
 var size              = require('gulp-size');
 var rev               = require('gulp-rev');
 var revNapkin         = require('gulp-rev-napkin');
-
+var sequence          = require('run-sequence');
 
 
 // =============================================================================
 // 'jekyll:prod'
 
 // Build the html,json,etc in prodFolder
+// Preprocess PRODUCTION sources
 // =============================================================================
-
+var preprocess   = require('gulp-preprocess');
 var run          = require('gulp-run');
 var shellCommand = 'JEKYLL_ENV=production bundle exec jekyll build' + ' --source=' + config.production.jekyll.src + ' --destination=' + config.production.jekyll.dest + ' --config=' + config.production.jekyll.config;
 
@@ -33,6 +37,14 @@ gulp.task('jekyll:prod', function (done) {
         .pipe(run(shellCommand))
         .on('close', done);
 });
+
+gulp.task('preprocess:prod', function() {
+    return gulp
+        .src('./' + config.production.path + '/{,*/}*.html')
+        .pipe(preprocess({context: { NODE_ENV: 'PRODUCTION', DEBUG: true}})) //To set environment variables in-line
+        .pipe(gulp.dest('./' + config.production.path + '/'))
+});
+
 
 // =============================================================================
 // OPTIMIZE HTML
@@ -60,9 +72,10 @@ gulp.task('optimize:html:prod', function() {
 var csso    = require('gulp-csso');
 var base64  = require('gulp-base64');
 
-gulp.task('optimize:css:prod', function() {
+gulp.task('minimize:css:prod', function() {
     return gulp
-        .src(config.production.optimize.css.src)
+        .src(config.production.optimize.css.group)
+        .pipe(concat(config.production.optimize.css.bundleFile))
         .pipe(base64(config.production.optimize.css.base64.options))
         .pipe(csso(config.production.optimize.css.options))
         .pipe(gulp.dest(config.production.optimize.css.dest))
@@ -73,6 +86,15 @@ gulp.task('optimize:css:prod', function() {
 });
 
 
+gulp.task('clean:css:prod', function() {
+    return del([
+            config.production.optimize.css.dest+'*',
+            '!'+config.production.optimize.css.dest+'/bundle-*',
+        ])
+});
+
+gulp.task('optimize:css:prod', ['minimize:css:prod', 'clean:css:prod']);
+
 // =============================================================================
 // OPTIMIZE JAVASCRIPT
 
@@ -82,18 +104,41 @@ gulp.task('optimize:css:prod', function() {
 var uglify = require('gulp-uglify');
 
 
-gulp.task('optimize:js:prod', function() {
+gulp.task('minimize:headScript:prod', function() {
     return gulp
-        .src(config.production.optimize.js.src)
+        .src(config.production.optimize.js.src + config.production.optimize.js.headScript)
+        .pipe(concat(config.production.optimize.js.headScript))
         .pipe(uglify(config.production.optimize.js.options))
         .pipe(gulp.dest(config.production.optimize.js.dest))
         .pipe(notify({
-            title: 'optimize:js:prod succesfully!',
-            message: 'optimize:js:prod task completed.'
+            title: 'optimize:headScript:prod succesfully!',
+            message: 'optimize:headScript:prod task completed.'
         }))
         .pipe(size());
 });
 
+gulp.task('minimize:bodyScript:prod', function() {
+    return gulp
+        .src(config.production.optimize.js.bodyGroup)
+        .pipe(concat(config.production.optimize.js.bodyScript))
+        .pipe(uglify(config.production.optimize.js.options))
+        .pipe(gulp.dest(config.production.optimize.js.dest))
+        .pipe(notify({
+            title: 'optimize:bodyScript:prod succesfully!',
+            message: 'optimize:bodyScript:prod task completed.'
+        }))
+        .pipe(size());
+});
+
+gulp.task('clean:js:prod', function() {
+    return del([
+            config.production.optimize.js.dest+'*',
+            '!'+config.production.optimize.js.dest+'/bundle-*',
+            '!'+config.production.optimize.js.dest+'/vendor-*',
+        ])
+});
+
+gulp.task('optimize:js:prod', ['minimize:headScript:prod', 'minimize:bodyScript:prod', 'clean:js:prod']);
 
 
 // =============================================================================
@@ -103,7 +148,6 @@ gulp.task('optimize:js:prod', function() {
 // This task output the size of the file and copy them to the production assets folder.
 // =============================================================================
 var imagemin = require('gulp-imagemin');
-
 
 gulp.task('optimize:images:prod', function() {
     return gulp
@@ -256,7 +300,7 @@ gulp.task('server:prod', ['build:prod'], function() {
 // Delete the production folder
 // This happens every time a production task starts
 // =============================================================================
-var del     = require('del');
+var del               = require('del');
 
 gulp.task('clean:prod', function() {
     return del(config.production.path)
@@ -270,7 +314,9 @@ gulp.task('clean:prod', function() {
 // =============================================================================
 gulp.task('build:prod', function(done) {
     sequence('clean:dev', 'clean:prod', 'jekyll:prod', [
+        'preprocess:prod',
         'styles:dev',
+        'styles:critical:dev',
         'coreStyles:dev',
         'scripts:dev',
         'coreScripts:dev',

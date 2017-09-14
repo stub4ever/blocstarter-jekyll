@@ -26,26 +26,35 @@ var rename            = require('gulp-rename');
 // JEKYLL
 
 // Rebuild Jekyll & do page reload
+// Preprocess DEVELOPMENT sources
 // =============================================================================
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
-
+var preprocess   = require('gulp-preprocess');
 var run          = require('gulp-run');
 var shellCommand = 'JEKYLL_ENV=development bundle exec jekyll build' + ' --source=' + config.development.jekyll.src + ' --destination=' + config.development.jekyll.dest + ' --config=' + config.development.jekyll.config;
 
 gulp.task('jekyll-build:dev', function (done) {
     browser.notify(messages.jekyllBuild);
-    return gulp.src(config.source.path)
+    return gulp
+        .src(config.source.path)
         .pipe(run(shellCommand))
         .on('close', done);
 });
 
 gulp.task('jekyll-rebuild', ['jekyll-build:dev'], function () {
+    gulp.start('preprocess:dev');
     gulp.start('kss:dev');
     browser.reload();
 });
 
+gulp.task('preprocess:dev', function() {
+    return gulp
+        .src('./' + config.development.path + '/{,*/}*.html')
+        .pipe(preprocess({context: { NODE_ENV: 'DEVELOPMENT', DEBUG: true}})) //To set environment variables in-line
+        .pipe(gulp.dest('./' + config.development.path + '/'))
+});
 
 
 // =============================================================================
@@ -71,6 +80,7 @@ gulp.task('kss:dev', function (done) {
         .on('close', done);
 });
 
+
 // =============================================================================
 // SASS
 
@@ -83,7 +93,6 @@ var sassdoc           = require('require-dir');
 var postcss           = require('gulp-postcss');
 var autoprefixer      = require('autoprefixer');
 var cssnano           = require('gulp-cssnano');
-
 
 var processors = [
     autoprefixer
@@ -104,7 +113,7 @@ gulp.task('coreStyles:dev', ['kss:dev'], function() {
         .pipe(notify({
             title: 'coreStyles:dev succesfully!',
             message: 'coreStyles:dev task completed.'
-        }));
+        }))
 });
 
 gulp.task('styles:dev', function() {
@@ -421,6 +430,7 @@ gulp.task('clean:dev', function() {
 // =============================================================================
 gulp.task('build:development', function(done) {
     sequence('clean:dev', ['jekyll-build:dev'], [
+        'preprocess:dev',
         'styles:critical:dev',
         'styles:dev',
         'coreStyles:dev',

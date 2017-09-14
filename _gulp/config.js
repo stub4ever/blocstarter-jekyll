@@ -229,7 +229,6 @@ module.exports = {
                 app + '/*'
             ],
             kss: app + '/_kss_styleguide/{,*/}*.{hbs,html,scss,js,md}',
-
             styles:  app + '/_styles/{,*/}*.scss',
             scripts: app + '/_scripts/{,*/}*.js',
 
@@ -263,7 +262,12 @@ module.exports = {
             },
 
             css: {
-                src: development + '/css/*.css',
+                // src: development + '/css/*.css',
+                group: [
+                    development + '/css/core.css',
+                    development + '/css/app.css'
+                ],
+                bundleFile: 'bundle.css',
                 dest: production + '/css/',
                 options: {},
 
@@ -278,7 +282,14 @@ module.exports = {
             },
 
             js: {
-                src: development + '/js/*.js',
+                src: development + '/js/',
+                headScript: 'vendor.js',
+                bodyGroup: [
+                    development + '/js/lib.js',
+                    development + '/js/core.js',
+                    development + '/js/app.js'
+                ],
+                bodyScript: 'bundle.js',
                 dest: production + '/js/',
                 options: {}
             },
