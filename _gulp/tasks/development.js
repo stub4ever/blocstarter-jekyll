@@ -198,7 +198,7 @@ gulp.task('coreScripts:dev', function() {
         }))
         .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(concat(config.core.scripts.mainFile))
+        // .pipe(concat(config.core.scripts.mainFile))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.core.scripts.app_dest))
         .pipe(gulp.dest(config.core.scripts.dev_dest))

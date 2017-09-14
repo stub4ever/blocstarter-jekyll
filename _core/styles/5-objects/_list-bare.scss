@@ -16,7 +16,11 @@
 .list-bare {
   list-style: none;
   list-style-image: none;
-  margin-left: 0;
-  margin-top: 0;
+  margin: 0;
+  padding-left:0;
 }
+
+    .list-bare li {
+        margin: 0;
+    }
 

@@ -47,6 +47,7 @@
     "gulp-svg2png": "^2.0.2",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
+    "gulp-wait": "0.0.2",
     "kss": "^3.0.0-beta.18",
     "path": "^0.12.7",
     "require-dir": "^0.3.1",

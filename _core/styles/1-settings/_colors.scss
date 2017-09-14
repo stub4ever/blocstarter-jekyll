@@ -15,11 +15,11 @@
 // Styleguide Settings.2.1
 
 
-$color-primary: #09F;
+$color-primary: #1E74F6;
 $color-primary-darken: darken($color-primary, 5%);
 $color-primary-lighten: lighten($color-primary, 5%);
 
-$color-secondary:#58595B;
+$color-secondary: #C8C9B9;
 $color-secondary-darken: darken($color-secondary, 10%);
 $color-secondary-lighten: lighten($color-secondary, 5%);
 
@@ -40,6 +40,8 @@ $color-grey-lighten: lighten($color-grey, 1%);
 
 
 $color-text: $color-black;
+
+$color-border: $color-secondary-lighten;
 
 
 // Form

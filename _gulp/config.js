@@ -7,6 +7,9 @@ const app               = 'app';
 const development       = 'build/development';
 const production        = 'build/production';
 
+// Deployment
+const deploy            = 'deployments';
+
 // =============================================================================
 // Server URL
 // =============================================================================
@@ -28,7 +31,10 @@ module.exports = {
         path: core,
 
         styles: {
-            src: core + '/styles/core.scss',
+            src: [
+                core + '/styles/core.scss',
+                core + '/styles/my10jobs.scss'
+            ],
             app_dest: app + '/css/',
             dev_dest: development + '/css/',
 
@@ -361,5 +367,10 @@ module.exports = {
             proxy: productionServerURL,
             port: productionPort
         },
+    },
+
+    // CONFIG DEPLOY
+    deploy: {
+        path: deploy,
     }
 };

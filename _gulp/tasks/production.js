@@ -303,7 +303,7 @@ gulp.task('server:prod', ['build:prod'], function() {
 var del               = require('del');
 
 gulp.task('clean:prod', function() {
-    return del(config.production.path)
+    return del(config.production.path, {force: true})
 });
 
 
@@ -353,9 +353,6 @@ gulp.task('build:prod', function(done) {
 // Build the PRODUCTION FOLDER, run the server
 // =============================================================================
 gulp.task('production', ['build:prod', 'server:prod']);
-
-gulp.task('deploy', ['build:prod']);
-
 
 
 

@@ -1,0 +1,60 @@
+// ========================================================
+// HAMBRUGER
+// ========================================================
+
+.hamburger {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    margin-left: $gutter;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: transparent;
+    }
+}
+
+
+$total-strokes:  3;
+@for $i from 1 through $total-strokes {
+
+    [class*='hamburger__stroke']:nth-of-type(#{$i}) {
+        width: inherit;
+        height: 2px;
+        background-color: $color-border;
+        position: absolute;
+        top: $i * 12px;
+        left: 0;
+    }
+}
+
+.hamburger__stroke-top {
+    display: none;
+}
+
+// ========================================================
+// DESKTOP
+// ========================================================
+
+@include respond-min-width($view-desktop) {
+
+    .hamburger {
+        margin-left: 0;
+    }
+
+    @for $i from 1 through $total-strokes {
+
+        [class*='hamburger__stroke']:nth-of-type(#{$i}) {
+            width: 2px;
+            height: inherit;
+            background-color: $color-border;
+            position: absolute;
+            top: 0;
+            left: $i * 12px;
+        }
+    }
+
+} // END MEDIA

@@ -1,47 +1,167 @@
-// Panel
-//
-// Markup:
-// <nav class="panel" role="navigation">
-//     <input id="panel-toggle" type="checkbox" class="panel__nav--target"></input>
-//     <span class="accessibility">Menu</span>
-//     <label for="panel-toggle" class="panel__toggle">Menu</label>
-//     <ul class="panel__nav list-bare">
-//         <li class="panel__nav-item"><a href="/" class="panel__nav-link panel__nav-link--active">Home</a></li>
-//         <li class="panel__nav-item"><a href="#" class="panel__nav-link">Sub</a></li>
-//     </ul>
-// </nav>
-//
-//
-// Styleguide: Components.Panel.1
-
+// ========================================================
+// # PANEL
 
 .panel {
-    margin: 0;
-    position: absolute;
-    right: $gutter;
-    top: $gutter;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
     z-index: 10;
+    border-bottom: 1px solid $color-border;
+    background-color: #FFF;
+    overflow: hidden;
+    will-change: transform;
+    transition: transform .2s cubic-bezier(.07,.23,.34,1), opacity .2s ease-in-out;
+    @include font-size(16px);
 }
 
 
-.panel__nav {
+.panel__inner {
+    height: inherit;
+}
+
+
+.panel__brand {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 129px;
+    height: 50px;
+    z-index: 10;
+    background-color: $color-black;
+    color: #FFF;
+    text-decoration: none;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    font-weight: 700;
+    border: 1px solid $color-black;
+}
+
+
+.panel__navigation {
+    position: absolute;
+    height: inherit;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    will-change: transform;
+}
+
+
+.panel__links {
     display: none;
+    height: inherit;
 }
 
 
-.panel__nav--target {
+.panel__link {
+    text-decoration: none;
+    color: $color-text;
+}
+
+
+.panel__target {
 
     &:checked {
-        ~ .panel__nav {
-            display: block;
+        ~ .panel-menu {
+             opacity: 1;
+            transform: translateX(100%);
         }
 
-        ~ .panel__close {
-            &:after {
-                content: 'close';
-                display: block;
-                visibility: visible;
-            }
+        ~ .overlay {
+            opacity: 1;
+            max-height: 1500px;
         }
     }
 }
+
+
+// ========================================================
+// TABLET
+// ========================================================
+
+@include respond-min-width($view-tablet) {
+
+    .panel__links {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .panel__link {
+        margin-right: $gutter/2;
+    }
+} // END MEDIA
+
+// ========================================================
+// DESKTOP
+// ========================================================
+
+@include respond-min-width($view-desktop) {
+
+    .panel {
+        width: 50%;
+        height: 100%;
+        border-bottom: none;
+        left: auto;
+        right: calc(100% - 50px);
+    }
+
+
+    .panel__brand {
+        position: absolute;
+        top: 115px;
+        left: -28px;
+        transform: rotate(270deg);
+        float: none;
+    }
+
+
+    .panel__inner {
+        border-right: 1px solid $color-border;
+        border-left: 1px solid $color-border;
+        position: relative;
+        height: 100%;
+        width: 50px;
+        margin-left: auto;
+    }
+
+
+    .panel__trigger {
+        position: absolute;
+        top: $gutter;
+        left: 0;
+        z-index: 5;
+    }
+
+
+    .panel__navigation {
+        width: 50px;
+        position: absolute;
+        left: 0;
+        transform: translateX(0);
+        top: 192px;
+        height: calc(100% - 96px);
+    }
+
+
+    .panel__target {
+
+        &:checked {
+            ~ .panel {
+                transform: translateX(50%);
+            }
+        }
+    }
+
+    .panel__links {
+        justify-content: space-between;
+        transform: rotate(270deg);
+        position: absolute;
+        top: 0;
+        right: -125%;
+        width: 175px;
+    }
+
+} // END MEDIA

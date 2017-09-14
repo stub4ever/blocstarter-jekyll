@@ -1,0 +1,40 @@
+// ========================================================
+// PAGE
+// ========================================================
+
+
+
+// ========================================================
+// TABLET
+// ========================================================
+
+@include respond-min-width($view-tablet){
+
+    // give equal content spacing in the left layout(1/2)
+    .page .bloc .bloc__item:nth-of-type(odd) .col {
+        margin-right: $gutter-stack;
+    }
+
+    // give equal content spacing in the right layout(1/2)
+    .page .bloc .bloc__item:nth-of-type(even) .col {
+        margin-left: $gutter-stack;
+    }
+
+} // END MEDIA
+
+// ========================================================
+// DESKTOP
+// ========================================================
+
+@include respond-min-width($view-desktop){
+
+    // give equal content spacing in the left layout(1/2)
+    .page .bloc .bloc__item:nth-of-type(odd) .col {
+        margin-right: $gutter-xlarge;
+    }
+
+    // give equal content spacing in the left layout(1/2)
+    .page .bloc .bloc__item:nth-of-type(even) .col {
+        margin-left: 0;
+    }
+} // END MEDIA

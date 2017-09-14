@@ -1,0 +1,31 @@
+// ========================================================
+// AUTHOR PROFILE
+// ========================================================
+
+
+
+.author-profile__avatar,
+.author-profile__navigation {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 400px;
+}
+
+
+.author-profile__avatar img {
+        margin: 0;
+}
+
+
+// ========================================================
+// TABLET
+// ========================================================
+
+@include respond-min-width($view-tablet){
+
+    .author-profile__navigation,
+    .author-profile__avatar {
+        display: block;
+        margin: 0 auto;
+    }
+} // END MEDIA

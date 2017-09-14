@@ -13,17 +13,15 @@
 // Styleguide: Base.2
 
 
+$heading-jumbo: 51px;
+$heading-display: 28px;
 
-// ========================================================
-// Headers
-// ========================================================
-
-$font-size-h1:  36px;
-$font-size-h2:  28px;
-$font-size-h3:  24px;
-$font-size-h4:  20px;
-$font-size-h5:  18px;
-$font-size-h6:  16px;
+$heading-h1:  38px;
+$heading-h2:  26px;
+$heading-h3:  24px;
+$heading-h4:  20px;
+$heading-h5:  18px;
+$heading-h6:  16px;
 
 h1,
 h2,
@@ -32,33 +30,48 @@ h4,
 h5,
 h6 {
     font-family: $font-secondary;
-    font-weight: bold;
     margin: 0 0 ($gutter/2) 0;
+    font-weight: 300;
 }
 
+.heading-jumbo {
+    @include font-size($heading-jumbo);
+    font-weight: 500;
+}
+
+.heading-display {
+    @include font-size($heading-display);
+}
+
+.heading-title {
+    color: $color-secondary;
+    margin-bottom: $gutter/2;
+}
 
 h1 {
-    @include font-size($font-size-h1);
+    @include font-size($heading-h1);
 }
 
 h2 {
-    @include font-size($font-size-h2);
+    @include font-size($heading-h2);
 }
 
 h3 {
-    @include font-size($font-size-h3);
+    @include font-size($heading-h3);
+    line-height: 1.35;
 }
 
+.heading-title,
 h4 {
-    @include font-size($font-size-h4);
+    @include font-size($heading-h4);
 }
 
 h5 {
-    @include font-size($font-size-h5);
+    @include font-size($heading-h5);
 }
 
 h6 {
-    @include font-size($font-size-h6);
+    @include font-size($heading-h6);
 }
 
 
@@ -67,35 +80,51 @@ h6 {
 // ========================================================
 
 @include respond-min-width($view-desktop) {
-    $font-size-h1:  48px;
-    $font-size-h2:  36px;
-    $font-size-h3:  28px;
-    $font-size-h4:  18px;
-    $font-size-h5:  18px;
-    $font-size-h6:  16px;
+
+    $heading-jumbo:     61px;
+    $heading-display:   38px;
+
+
+    $heading-h1:  48px;
+    $heading-h2:  36px;
+    $heading-h3:  28px;
+    $heading-h4:  24px;
+    $heading-h5:  20px;
+    $heading-h6:  20px;
+
+    .heading-jumbo {
+        @include font-size($heading-jumbo);
+    }
+
+    .heading-display {
+        @include font-size($heading-display);
+        line-height: $base-line-height / $base-size*1.05;
+    }
+
 
     h1 {
-        @include font-size($font-size-h1);
+        @include font-size($heading-h1);
     }
 
     h2 {
-        @include font-size($font-size-h2);
+        @include font-size($heading-h2);
     }
 
     h3 {
-        @include font-size($font-size-h3);
+        @include font-size($heading-h3);
     }
 
+    .heading-title,
     h4 {
-        @include font-size($font-size-h4);
+        @include font-size($heading-h4);
     }
 
     h5 {
-        @include font-size($font-size-h5);
+        @include font-size($heading-h5);
     }
 
     h6 {
-        @include font-size($font-size-h6);
+        @include font-size($heading-h6);
     }
 
 
