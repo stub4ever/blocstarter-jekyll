@@ -259,7 +259,7 @@ module.exports = {
 
         optimize: {
             html: {
-                src: [development + '/{,*/}*.html', '!build/development/styleguide/*.html'],
+                src: [production + '/{,*/}*.html'],
                 dest: production,
                 options: {
                     collapseWhitespace: true,
