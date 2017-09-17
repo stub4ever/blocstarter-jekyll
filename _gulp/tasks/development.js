@@ -46,7 +46,6 @@ gulp.task('jekyll-build:dev', function (done) {
 gulp.task('jekyll-rebuild', ['jekyll-build:dev'], function () {
     gulp.start('preprocess:dev');
     gulp.start('kss:dev');
-    browser.reload();
 });
 
 gulp.task('preprocess:dev', function() {
@@ -450,7 +449,7 @@ gulp.task('build:development', function(done) {
 // Build the devFolder, run the server, and watch for file changes
 // =============================================================================
 gulp.task('default', ['build:development', 'server:dev'], function() {
-    gulp.watch([config.development.watch.jekyll], ['jekyll-rebuild']);
+    gulp.watch([config.development.watch.jekyll], ['jekyll-rebuild', browser.reload]);
     gulp.watch([config.development.watch.kss], ['kss:dev', browser.reload]);
 
     gulp.watch([config.development.watch.styles], ['styles:dev', browser.reload]);

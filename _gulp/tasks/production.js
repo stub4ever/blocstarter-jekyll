@@ -164,6 +164,8 @@ gulp.task('optimize:images:prod', function() {
 // Add md5 hashes to assets referenced by CSS and JS files
 // this task will rename all  CSS and JS files that has been changed to invalidate the old cache to latest update.
 // =============================================================================
+var headers = {'Cache-Control': 'max-age=315360000, no-transform, public'};
+
 
 gulp.task('rev-assets:prod', function() {
     // Ignore files that may reference assets. We'll rev them next.

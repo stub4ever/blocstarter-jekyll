@@ -13,12 +13,12 @@
 
 "//": "relative to the generated style guide.",
   "css": [
-        "../../build/development/css/core.css",
-        "../../build/development/css/styles.css"
+        "../css/core.css",
+        "../css/app.css"
   ],
   "js" : [
-        "../../build/development/js/lib.js",
-        "../../build/development/js/core.js",
-        "../../build/development/js/app.js"
-  ]
+        "../js/vendor.js",
+        "../js/lib.js",
+        "../js/core.js",
+    ]
 }
