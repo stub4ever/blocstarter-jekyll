@@ -19,6 +19,6 @@
   "js" : [
         "../js/vendor.js",
         "../js/lib.js",
-        "../js/core.js",
+        "../js/core.js"
     ]
 }

@@ -61,33 +61,9 @@ body {
 // page
 
 .page {
-    margin-top: 50px;
     position: relative;
     overflow: hidden;
 }
-
-
-// ========================================================
-// TABLET
-// ========================================================
-
-@include respond-min-width($view-tablet){
-    .page {
-
-        &:before {
-            content: '';
-            position: fixed;
-            top: 0;
-            right: 25%;
-            display: block;
-            height: 100%;
-            width: 25%;
-            border-right: 1px solid $color-border;
-            border-left: 1px solid $color-border;
-            z-index: -1;
-        }
-    }
-} // END MEDIA
 
 
 // ========================================================
@@ -102,10 +78,5 @@ body {
     body {
         font-size: ($base-size / 16px) * 1em; // The `font-size` is calculated to exist in ems, the `line-height` is calculated to exist unitlessly
         line-height: $base-line-height / $base-size;
-    }
-
-    .page {
-        margin-top: 0;
-        margin-left: 50px;
     }
 } // END MEDIA
