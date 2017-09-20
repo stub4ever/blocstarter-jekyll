@@ -12,21 +12,21 @@
 {% endif %}
 
 
-{% include path.html %}
+{% include base.html %}
 
 <!-- @if NODE_ENV == 'DEVELOPMENT' -->
-<script src="{{ path }}/js/lib.js"></script>
-<script src="{{ path }}/js/core.js"></script>
-<script src="{{ path }}/js/app.js"></script>
+<script src="{{ base }}/js/lib.js"></script>
+<script src="{{ base }}/js/core.js"></script>
+<script src="{{ base }}/js/app.js"></script>
 <!-- @endif -->
 
 <!-- @if NODE_ENV == 'PRODUCTION' -->
 <noscript>
     <!-- Fallback if fail loading CSS files in -->
-    <link href='{{ path }}/css/bundle.css' rel='stylesheet' type='text/css'>
+    <link href='{{ base }}/css/bundle.css' rel='stylesheet' type='text/css'>
 
     <link href='https://fonts.googleapis.com/css?family=Hind:300,500,700|Open+Sans:400,700" rel="stylesheet' rel='stylesheet' type='text/css'>
 </noscript>
 
-<script src="{{ path }}/js/bundle.js"></script>
+<script src="{{ base }}/js/bundle.js"></script>
 <!-- @endif -->
