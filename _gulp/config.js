@@ -44,7 +44,7 @@ module.exports = {
         scripts: {
             src: [
                 core + '/scripts/polyfill.js',
-                core + '/scripts/*.js',
+                core + '/scripts/{,*/}*.js',
                 core + '/scripts/core.js',
             ],
             mainFile: 'core.js',
