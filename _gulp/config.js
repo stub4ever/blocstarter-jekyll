@@ -33,7 +33,6 @@ module.exports = {
         styles: {
             src: [
                 core + '/styles/core.scss',
-                core + '/styles/my10jobs.scss'
             ],
             app_dest: app + '/css/',
             dev_dest: development + '/css/',
@@ -43,7 +42,11 @@ module.exports = {
         },
 
         scripts: {
-            src: core + '/scripts/**/*.js',
+            src: [
+                core + '/scripts/polyfill.js',
+                core + '/scripts/*.js',
+                core + '/scripts/core.js',
+            ],
             mainFile: 'core.js',
             app_dest: app + '/js/',
             dev_dest: development + '/js/'

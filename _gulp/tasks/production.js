@@ -38,12 +38,12 @@ gulp.task('jekyll:prod', function (done) {
         .on('close', done);
 });
 
-gulp.task('preprocess:prod', function() {
-    return gulp
-        .src('./' + config.production.path + '/{,*/}*.html')
-        .pipe(preprocess({context: { NODE_ENV: 'PRODUCTION', DEBUG: true}})) //To set environment variables in-line
-        .pipe(gulp.dest('./' + config.production.path + '/'))
-});
+// gulp.task('preprocess:prod', function() {
+//     return gulp
+//         .src('./' + config.production.path + '/{,*/}*.html')
+//         .pipe(preprocess({context: { NODE_ENV: 'PRODUCTION', DEBUG: true}})) //To set environment variables in-line
+//         .pipe(gulp.dest('./' + config.production.path + '/'))
+// });
 
 
 // =============================================================================
@@ -316,7 +316,6 @@ gulp.task('clean:prod', function() {
 // =============================================================================
 gulp.task('build:prod', function(done) {
     sequence('clean:dev', 'clean:prod', 'jekyll:prod', [
-        'preprocess:prod',
         'styles:dev',
         'styles:critical:dev',
         'coreStyles:dev',

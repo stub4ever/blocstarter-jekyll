@@ -44,17 +44,15 @@ gulp.task('jekyll-build:dev', function (done) {
 });
 
 gulp.task('jekyll-rebuild', ['jekyll-build:dev'], function () {
-    gulp.start('preprocess:dev');
     gulp.start('kss:dev');
 });
 
-gulp.task('preprocess:dev', function() {
-    return gulp
-        .src('./' + config.development.path + '/{,*/}*.html')
-        .pipe(preprocess({context: { NODE_ENV: 'DEVELOPMENT', DEBUG: true}})) //To set environment variables in-line
-        .pipe(gulp.dest('./' + config.development.path + '/'))
-});
-
+// gulp.task('preprocess:dev', function() {
+//     return gulp
+//         .src('./' + config.development.path + '/{,*/}*.html')
+//         .pipe(preprocess({context: { NODE_ENV: 'DEVELOPMENT', DEBUG: true}})) //To set environment variables in-line
+//         .pipe(gulp.dest('./' + config.development.path + '/'))
+// });
 
 // =============================================================================
 // KSS
@@ -196,8 +194,7 @@ gulp.task('coreScripts:dev', function() {
             this.emit('end');
         }))
         .pipe(sourcemaps.init())
-        .pipe(babel())
-        // .pipe(concat(config.core.scripts.mainFile))
+        .pipe(concat(config.core.scripts.mainFile))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.core.scripts.app_dest))
         .pipe(gulp.dest(config.core.scripts.dev_dest))
@@ -419,7 +416,11 @@ gulp.task('server:dev', ['build:development'], function() {
 // This happens every time a default starts
 // =============================================================================
 gulp.task('clean:dev', function() {
-    return del(config.development.path)
+    return del([
+            config.development.path,
+            config.development.scripts.app_dest+'/*',
+            config.development.styles.app_dest+'/*',
+        ])
 });
 
 // =============================================================================
@@ -429,7 +430,6 @@ gulp.task('clean:dev', function() {
 // =============================================================================
 gulp.task('build:development', function(done) {
     sequence('clean:dev', ['jekyll-build:dev'], [
-        'preprocess:dev',
         'styles:critical:dev',
         'styles:dev',
         'coreStyles:dev',

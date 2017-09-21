@@ -1,3 +1,5 @@
+{% include base.html %}
+
 {% if jekyll.environment == 'production' %}
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
@@ -9,18 +11,6 @@
     ga('create','UA-XXXXX-X');ga('send','pageview');
 </script>
 
-{% endif %}
-
-
-{% include base.html %}
-
-<!-- @if NODE_ENV == 'DEVELOPMENT' -->
-<script src="{{ base }}/js/lib.js"></script>
-<script src="{{ base }}/js/core.js"></script>
-<script src="{{ base }}/js/app.js"></script>
-<!-- @endif -->
-
-<!-- @if NODE_ENV == 'PRODUCTION' -->
 <noscript>
     <!-- Fallback if fail loading CSS files in -->
     <link href='{{ base }}/css/bundle.css' rel='stylesheet' type='text/css'>
@@ -29,4 +19,13 @@
 </noscript>
 
 <script src="{{ base }}/js/bundle.js"></script>
-<!-- @endif -->
+{% endif %}
+
+
+{% if jekyll.environment == 'development' %}
+<script src="{{ base }}/js/lib.js"></script>
+<script src="{{ base }}/js/core.js"></script>
+<script src="{{ base }}/js/app.js"></script>
+{% endif %}
+
+
